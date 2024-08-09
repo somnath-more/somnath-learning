@@ -12,9 +12,9 @@ const HeaderBox = styled(Box)({
 });
 const MainBox = styled(Box)({
   display: "flex",
-  background: "lightgreen",
   height: "100%",
   width: "100%",
+  backgroundColor: "#f0f2f5"
 });
 const HomeTemplate = ({ NavBar, MainComponent }: HomeTemplateProps) => {
   return (
