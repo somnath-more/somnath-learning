@@ -13,8 +13,7 @@ const HomeBox = styled(Box)({
 const Home = () => {
   return (
     <HomeBox>
-      <h1>Home Page</h1>
-      <p>This is the Home page</p>
+     
     </HomeBox>
   );
 };
