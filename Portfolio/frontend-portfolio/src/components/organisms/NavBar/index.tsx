@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-import { Box, Grid, Typography, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 // Navbar container
@@ -15,7 +24,6 @@ const OuterNavBar = styled(Box)({
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
 });
 
-// Left side of the navbar
 const LeftGrid = styled(Grid)({
   display: "flex",
   alignItems: "center",
@@ -36,7 +44,7 @@ const NavItem = styled(Typography)({
 const DrawerBox = styled(Box)({
   backgroundColor: "#282c34", // Same background as navbar
   color: "#ffffff", // Text color
-  height: "100%"
+  height: "100%",
 });
 
 // Drawer list item styling
@@ -52,7 +60,7 @@ const NavBarElement = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
-  { label: "Visitor", path: "/visitor" }
+  { label: "Visitor", path: "/visitor" },
 ];
 
 const NavBar = () => {
@@ -63,15 +71,18 @@ const NavBar = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const PortFolioText=styled(Typography)({
-    color:"white" ,
-    fontWeight:"bold",
-  })
+  const PortFolioText = styled(Typography)({
+    color: "white",
+    fontWeight: "bold",
+  });
   const drawer = (
     <DrawerBox>
       <List>
         {NavBarElement.map((navabar) => (
-          <DrawerListItem key={navabar.label} onClick={() => navigate(navabar.path)}>
+          <DrawerListItem
+            key={navabar.label}
+            onClick={() => navigate(navabar.path)}
+          >
             <ListItemText primary={navabar.label} />
           </DrawerListItem>
         ))}
@@ -81,9 +92,7 @@ const NavBar = () => {
 
   return (
     <OuterNavBar>
-      <PortFolioText variant="h4"  >
-        Somnath More
-      </PortFolioText>
+      <PortFolioText variant="h4">Somnath More</PortFolioText>
       <Box sx={{ display: { xs: "none", sm: "block" } }}>
         <LeftGrid>
           {NavBarElement.map((item) => (
@@ -94,8 +103,13 @@ const NavBar = () => {
         </LeftGrid>
       </Box>
       <Box sx={{ display: { xs: "block", sm: "none" } }}>
-        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
-          <MenuIcon style={{ color: '#ffffff' }} />
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleDrawerToggle}
+        >
+          <MenuIcon style={{ color: "#ffffff" }} />
         </IconButton>
       </Box>
       <Drawer
@@ -103,7 +117,7 @@ const NavBar = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, 
+          keepMounted: true,
         }}
       >
         {drawer}

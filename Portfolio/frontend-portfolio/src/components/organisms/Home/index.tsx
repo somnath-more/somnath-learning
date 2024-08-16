@@ -1,33 +1,39 @@
 import styled from "@emotion/styled";
-import Box from "@mui/material/Box";
+import { IconButton, Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const HomeBox = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  height: "100vh",
   width: "100vw",
+  height: "100vh",
   backgroundColor: "#282c34",
   color: "#61dafb",
   textAlign: "center",
   fontFamily: "'Roboto', sans-serif",
   padding: "20px",
+  margin: 0,
 });
 
-const Heading = styled('h1')({
+const Heading = styled("h1")({
   fontSize: "3rem",
   margin: "0",
   fontWeight: "bold",
   animation: "fadeIn 5s ease-in-out",
   "@keyframes fadeIn": {
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
   },
 });
 
-const Text = styled('h2')({
+const Text = styled("h2")({
   fontSize: "2rem",
   margin: "10px 0",
   fontWeight: "300",
@@ -35,21 +41,35 @@ const Text = styled('h2')({
   animation: "fadeIn 2s ease-in-out",
   "@keyframes fadeIn": {
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
   },
 });
+
+const StyledIconButton = styled(IconButton)(({ theme, bgcolor }: any) => ({
+  color: "#fff",
+  backgroundColor: bgcolor,
+  margin: "10px",
+  "&:hover": {
+    backgroundColor: bgcolor,
+    opacity: 0.8,
+  },
+  transition: "all 0.3s ease-in-out",
+  width: "60px",
+  height: "60px",
+}));
 
 const Home = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const texts = [
-    'I am a Software Engineer',
-    'I am a DevOps Engineer',
-    'I am a Human',
-    'I am a Developer'
+    "I am a Software Engineer",
+    "I am a DevOps Engineer",
+    "I am a Human",
+    "I am a Developer",
   ];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTextIndex(prevIndex => (prevIndex + 1) % texts.length);
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 2000);
     return () => clearInterval(interval);
   }, [texts.length]);
@@ -58,6 +78,24 @@ const Home = () => {
     <HomeBox>
       <Heading>Welcome to My Portfolio</Heading>
       <Text>{texts[currentTextIndex]}</Text>
+
+      <Box sx={{ display: "flex", gap: 2, mt: "30px" }}>
+        <StyledIconButton bgcolor="#0077B5">
+          <LinkedInIcon />
+        </StyledIconButton>
+        <StyledIconButton bgcolor="#E1306C">
+          <InstagramIcon />
+        </StyledIconButton>
+        <StyledIconButton bgcolor="#3b5998">
+          <FacebookIcon />
+        </StyledIconButton>
+        <StyledIconButton bgcolor="#1DA1F2">
+          <TwitterIcon />
+        </StyledIconButton>
+        <StyledIconButton bgcolor="#333333">
+          <GitHubIcon />
+        </StyledIconButton>
+      </Box>
     </HomeBox>
   );
 };
