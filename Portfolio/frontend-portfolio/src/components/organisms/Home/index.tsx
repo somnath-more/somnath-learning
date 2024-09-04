@@ -20,6 +20,10 @@ const HomeBox = styled(Box)({
   fontFamily: "'Roboto', sans-serif",
   padding: "20px",
   margin: 0,
+  backgroundImage: `url(${"sunset.jpg"})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
 });
 
 const Heading = styled("h1")({

@@ -57,7 +57,7 @@ const Paragraph = styled("p")({
   textAlign: "center",
   maxWidth: "800px", // Limit paragraph width
   color: "#eee", // Light color for readability
-  transition: "color 0.3s ease-in-out, transform 0.3s ease-in-out",
+  transition: "color 0.9s ease-in-out, transform 0.9s ease-in-out",
   "&:hover": {
     color: "#d1d1d1", // Lighten color on hover
     transform: "translateY(-3px)", // Slight lift on hover
@@ -102,7 +102,7 @@ const Section = styled(Box)({
   marginBottom: "30px", // Space between sections
   transition: "background-color 0.3s ease-in-out, transform 0.3s ease-in-out",
   "&:hover": {
-    backgroundColor: "rgba(0, 0, 0, 0.7)", // Darker on hover
+    backgroundColor: "pink", // Darker on hover
     transform: "translateY(-5px)", // Slight lift on hover
   },
 });
@@ -111,7 +111,7 @@ const About = () => {
   return (
     <AboutBox>
       <Heading>About Me</Heading>
-      <StyledAvatar src="/path/to/your/photo.jpg" alt="Your Photo" />
+      <StyledAvatar src="sunset.jpg" alt="Your Photo" />
 
       <Section>
         <SubHeading>Personal Details</SubHeading>
