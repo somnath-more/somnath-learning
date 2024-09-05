@@ -86,7 +86,7 @@ const Home = () => {
 
       <Box sx={{ display: "flex", gap: 2, mt: "30px" ,  }}>
         <StyledIconButton bgcolor="#0077B5">
-        <Tooltip title="LinkedIn">
+        <Tooltip title="LinkedIn" arrow>
           <LinkedInIcon />
           </Tooltip>
         </StyledIconButton>
@@ -95,18 +95,18 @@ const Home = () => {
           <InstagramIcon />
           </Tooltip>
         </StyledIconButton>
-        <StyledIconButton bgcolor="#3b5998">
-        <Tooltip title="Facebook">
+        <StyledIconButton bgcolor="#3b5998" >
+        <Tooltip title="Facebook" arrow>
           <FacebookIcon />
           </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#1DA1F2">
-        <Tooltip title="Twitter">
+        <Tooltip title="Twitter" arrow>
           <TwitterIcon />
           </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#333333">
-        <Tooltip title="LinkedIn">
+        <Tooltip title="Github" arrow>
           <GitHubIcon />
           </Tooltip>
         </StyledIconButton>
