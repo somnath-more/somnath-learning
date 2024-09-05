@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { IconButton, Box } from "@mui/material";
+import { IconButton, Box, Tooltip } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -24,6 +24,7 @@ const HomeBox = styled(Box)({
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
+
 });
 
 const Heading = styled("h1")({
@@ -83,21 +84,31 @@ const Home = () => {
       <Heading>Welcome to My Portfolio</Heading>
       <Text>{texts[currentTextIndex]}</Text>
 
-      <Box sx={{ display: "flex", gap: 2, mt: "30px" }}>
+      <Box sx={{ display: "flex", gap: 2, mt: "30px" ,  }}>
         <StyledIconButton bgcolor="#0077B5">
+        <Tooltip title="LinkedIn">
           <LinkedInIcon />
+          </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#E1306C">
+        <Tooltip title="Instagram">
           <InstagramIcon />
+          </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#3b5998">
+        <Tooltip title="Facebook">
           <FacebookIcon />
+          </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#1DA1F2">
+        <Tooltip title="Twitter">
           <TwitterIcon />
+          </Tooltip>
         </StyledIconButton>
         <StyledIconButton bgcolor="#333333">
+        <Tooltip title="LinkedIn">
           <GitHubIcon />
+          </Tooltip>
         </StyledIconButton>
       </Box>
     </HomeBox>

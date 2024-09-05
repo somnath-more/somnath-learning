@@ -102,7 +102,7 @@ const Section = styled(Box)({
   marginBottom: "30px", // Space between sections
   transition: "background-color 0.3s ease-in-out, transform 0.3s ease-in-out",
   "&:hover": {
-    backgroundColor: "pink", // Darker on hover
+    backgroundColor: "rgba(0, 0, 0, 0.7)", // Darker on hover
     transform: "translateY(-5px)", // Slight lift on hover
   },
 });
