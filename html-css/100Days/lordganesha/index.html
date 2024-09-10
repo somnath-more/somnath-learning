@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful Lord Ganesha in CSS</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .ganesha {
+      position: relative;
+      width: 250px;
+      height: 300px;
+      background: radial-gradient(circle, #FFA726, #FF7043);
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .ganesha::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #FFB74D, #FF8A65);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Ears */
+    .ear-left, .ear-right {
+      position: absolute;
+      top: 40px;
+      width: 60px;
+      height: 80px;
+      background: linear-gradient(135deg, #FFCC80, #FFA726);
+      border-radius: 50%;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .ear-left {
+      left: -50px;
+    }
+
+    .ear-right {
+      right: -50px;
+    }
+
+    /* Trunk */
+    .trunk {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 60px;
+      height: 120px;
+      background: linear-gradient(180deg, #FFB74D, #FF7043);
+      border-radius: 50%;
+      transform: translateX(-50%) rotate(20deg);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Eyes */
+    .eye-left, .eye-right {
+      position: absolute;
+      top: 80px;
+      width: 25px;
+      height: 25px;
+      background-color: #000;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .eye-left {
+      left: 70px;
+    }
+
+    .eye-right {
+      right: 70px;
+    }
+
+    /* Tusks */
+    .tusk-left, .tusk-right {
+      position: absolute;
+      bottom: 50px;
+      width: 30px;
+      height: 15px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .tusk-left {
+      left: 50px;
+      transform: rotate(20deg);
+    }
+
+    .tusk-right {
+      right: 50px;
+      transform: rotate(-20deg);
+    }
+
+    /* Crown */
+    .crown {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      width: 100px;
+      height: 80px;
+      background: linear-gradient(135deg, #FFD700, #FFC107);
+      border-radius: 50% 50% 0 0;
+      transform: translateX(-50%);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .crown::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #FFD700, #FFEB3B);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Bindi (Third Eye) */
+    .bindi {
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      width: 12px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="ganesha">
+    <div class="ear-left"></div>
+    <div class="ear-right"></div>
+    <div class="eye-left"></div>
+    <div class="eye-right"></div>
+    <div class="trunk"></div>
+    <div class="tusk-left"></div>
+    <div class="tusk-right"></div>
+    <div class="crown"></div>
+    <div class="bindi"></div>
+  </div>
+
+</body>
+</html>
