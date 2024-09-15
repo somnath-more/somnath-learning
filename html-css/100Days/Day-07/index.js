@@ -9,4 +9,5 @@ $(document).ready(function() {
         $('.panel').toggleClass('show-menu');
         $('.menu').toggleClass('active');
     });
+
 });
