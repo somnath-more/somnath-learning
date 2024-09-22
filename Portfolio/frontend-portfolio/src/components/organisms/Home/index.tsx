@@ -13,7 +13,7 @@ const HomeBox = styled(Box)({
   alignItems: "center",
   flexDirection: "column",
   width: "100vw",
-  height: "100vh",
+  height: "100%",
   backgroundColor: "#282c34",
   color: "#61dafb",
   textAlign: "center",

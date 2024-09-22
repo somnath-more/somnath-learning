@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+
+</head>
+<body>
+    {{!-- {{sliderData}} --}}
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade bg-dark" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <ol class="carousel-indicators">
+            {{#each sliderData}}
+            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{@index}}" class="{{#if this.isActive}}active{{/if}}"></li>
+            {{/each}}
+        </ol>
+
+        <!-- Carousel Inner (Slides) -->
+        <div class="carousel-inner">
+            {{#each sliderData}}
+            <div class="carousel-item {{#if this.isActive}}active{{/if}}">
+                {{!-- <img src={{this.imageUrl}} class="d-block w-100 slider-image" alt="@index"> --}}
+                <video class="img-fluid slider-image" autoplay loop muted >
+                    <source
+                    src={{this.imageUrl}}
+                    type="video/mp4"
+                    />
+                </video>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{this.title}}</h5>
+                    <p>{{this.subTitle}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <!-- Carousel Controls (Previous and Next) -->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS (required for carousel functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
