@@ -65,6 +65,6 @@ jobs:
           docker pull ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
           docker stop nodejs-portfolio || true
           docker rm nodejs-portfolio || true
-          docker run -itd -p 3000:80 --name=nodejs-portfolio ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
+          docker run -itd -p 5555:5555 --name=nodejs-portfolio ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
           echo "Deployed on EC2 successfully!"
           EOF
