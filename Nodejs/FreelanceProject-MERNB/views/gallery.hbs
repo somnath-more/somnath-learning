@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Navbar Component -->
+    {{> navbar data=data}}
+
+    <!-- Gallery Section -->
+    <section>
+        <div class="container-fluid p-3 bg-dark">
+            <div class="row">
+                {{#each photos}}
+                <div class="col-md-4 col-lg-3">
+                    <div class="bg-dark m-3 shadow-lg border rounded shadow-lg" style="height: 250px; position: relative;">
+                        <img src="{{this.imageLink}}" alt="great" class="img-fluid h-100 object-cover rounded w-100" />
+                        <p class="position-absolute bottom-0 left-0 w-100 bg-info bg-opacity-50 text-white text-center py-2 shadow-lg">
+                            {{this.imageName}}
+                        </p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

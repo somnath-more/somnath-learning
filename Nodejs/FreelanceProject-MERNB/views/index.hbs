@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveller Adventure</title>
+  {{!-- static css --}}
+  <link rel="stylesheet" href="/webapp/static/css/style.css">
+  <!-- Bootstrap CSS (make sure you include the correct version) -->
+  {{!-- Adding title icon --}}
+  <link rel="icon" type="image/png" href="/webapp/static/images/explore.svg">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+
+<body>
+  {{>navbar data=data}}
+  {{!-- {{data}} --}}
+  {{!-- {{slides}} --}}
+  {{>slider sliderData=slides}}
+  {{!-- Banner 1 section --}}
+
+  <section class="banner1_section p-5 text-center bg-dark hover-card">
+    <div class="container-fluid"></div>
+    <div class="row">
+      <div class="col-md-12 ">
+        <h1 class="text-light">Welcome to Our Website</h1>
+          <p>
+            This website is built with Node.js for the backend, HBS for templating, and MongoDB for dynamic content storage. It uses Tailwind CSS for styling and is deployed on AWS EC2 with CI/CD pipelines.
+          </p>
+        <button id="services_section" "btn bg-secondary text-center">
+          Explore More
+          <i class="fa fa-arrow-right ml-2"></i>
+        </button>
+  </section>
+  {{!-- {{services section}} --}}
+<section id="services_section" class="py-4 bg-dark">
+  <div class="container-fluid">
+    <h1 class="text-center text-light text-secondary mb-4">Explore Cities</h1>
+    <div class="row mt-5 mb-5">
+      {{#each services}}
+      <div class="col-md-4 p-3 d-flex justify-content-center">
+        <div class="card shadow-lg bg-dark hover-card" style="width: 100%;">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <img src={{this.icon}} style="height: 100px;" class="img-fluid" alt="Service Icon">
+            </div>
+            <h5 class="card-title text-light font-weight-bold">{{this.title}}</h5>
+            <p class="card-text text-light" >{{this.description}}</p>
+            <div class="d-flex justify-content-around">
+              <a href={{this.link1}} class="btn btn-primary">{{this.link1Text}}</a>
+              <a href={{this.link2}} class="btn btn-secondary">{{this.link2Text}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+  {{!-- Banner Section --}}
+  {{!-- Banner 2 Section --}}
+  <section class="banner2_section bg-dark py-4 ">
+    <div class="container hover-card">
+      <div class="row">
+        {{!-- left side --}}
+        <div class="col-md-6 text-center">
+          <h1 class="text-light">Innovate and Explore
+          </h1>
+          <p>Gateway to discovering unique travel experiences and hidden gems around the world. We aim to spark your
+            wanderlust with innovative travel ideas and expert insights for every adventure.</p>
+          <button class="btn btn-secondary">
+            Visit Our Website
+            <i class="fa fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+        {{!-- right side --}}
+        <div class="col-md-6 text-center">
+          <img src="/webapp/static/images/banner2.png" style="height: 200px;" alt="Company Logo" class="img-fluid">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  {{!-- Banner 3 Section --}}
+  <section class="banner3_section bg-dark py-4 ">
+    <div class="container hover-card">
+      <div class="row">
+        {{!-- left side --}}
+        <div class="col-md-6 text-center">
+          <img src="/webapp/static/images/banner3.png" style="height: 200px;" alt="Company Logo" class="img-fluid">
+
+        </div>
+
+        {{!-- right side --}}
+        <div class="col-md-6 text-center">
+          <h1 class="text-light ">Careers</h1>
+          <p>we’re always looking for passionate individuals who thrive on creativity and adventure. Join our team and
+            help inspire travelers to explore the world in new and exciting ways. </p>
+          <button class="btn btn-secondary">
+            Careers
+            <i class="fa fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  {{!-- Contact Us Section --}}
+
+  <section id="contact_us_section" class="bg-dark">
+    <div class="container hover-card">
+      <h1 class="text-center text-light text-secondary">Contact Us</h1>
+      <div class="row mt-5 pb-4">
+        <div class="col-md-12">
+          <form action="/process-contact-form" method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Your Email address</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="contactNumberField">Your Contact Number</label>
+              <input name="phone" type="number" class="form-control" id="contactNumberField" placeholder="Mobile Number">
+            </div>
+
+            <div class="form-floating mt-3">
+              <textarea name="query" class="form-control" style="height: 200px;" placeholder="Leave a query here"
+                id="floatingTextArea"></textarea>
+              <label for="floatingTextArea">Your Query !!</label>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-3">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  </section>
+  {{!-- About --}}
+
+  <section id="about_us" class="about_us bg-dark  py-4">
+    <div class="container hover-card">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="text-light">About Us</h1>
+          <p class="text-light"> At Traveller Adventure, we inspire travelers to explore the world's most breathtaking
+            destinations. With curated guides and travel tips, we make your next adventure unforgettable!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{!-- footer Section --}}
+  <footer class="bg-dark py-4 border-4 border-solid border-blue-600 shadow-lg hover:shadow-lg ">
+    <p class="text-light text-center">© 2024 travelleradventure.codemaya.in</p>
+  </footer>
+
+
+  <!-- Bootstrap JS (required for carousel functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

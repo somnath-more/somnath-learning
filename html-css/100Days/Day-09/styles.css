@@ -1,0 +1,293 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+/* $drop-color: #7FC1F9; */
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+  background: #1A2238;
+  color: #394568;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+
+    
+}
+.moon{
+
+    position: absolute;
+    width: 67px;
+    height: 67px;
+    top: 45px;
+    left: 55px;
+    border-radius: 50%;
+    background: #F6EDBD;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 #F6EDBD;
+    -webkit-animation: rise 1s ease-out;
+    animation: rise 1s ease-out;
+
+}
+
+.front{
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 90px;
+    left: 0px;
+    bottom: 0px;
+    background: #fff;
+    .temperature{
+        float: left;
+        margin-left: 20px;
+        font-size: 45px;
+        line-height: 90px;
+    }
+    .info{
+        float: left;
+        margin: 25px 0 0 13px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .preview{
+        float: right;
+    font-weight: 400;
+    text-align: right;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 25px 20px 0 0;
+}
+    
+}
+
+
+.hill-bg-1
+{
+
+
+}
+.hill-bg-2{
+
+}
+.hill-fg-1{
+
+}
+.hill-fg-2{
+
+}
+.hill-fg-3{
+
+}
+.hill-bg-1, .hill-fg-1, .hill-fg-3, .hill-fg-2, .hill-bg-2 {
+    position: absolute;
+    z-index: 2;
+    width: 337px;
+    height: 281px;
+    top: 201px;
+    left: -57px;
+    background: #26314F;
+    border-radius: 50%;
+}
+.hill-fg-1, .hill-fg-3, .hill-fg-2 {
+    background: #303C5D;
+    top: 248px;
+    left: -137px;
+}
+.hill-fg-2 {
+    top: 221px;
+    left: 63px;
+}
+.hill-bg-2 {
+    top: 197px;
+    left: 177px;
+}
+.hill-fg-3{
+    top: 248px;
+    left: 292px;
+}
+
+
+
+.crater-1{
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+}
+.crater-2 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 12px;
+    left: 0;
+}
+
+.crater-3 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 56px;
+    left: 10px;
+}
+
+.crater-4 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    width: 6px;
+    height: 6px;
+    top: 37px;
+    left: 49px;
+}
+
+.crater-5 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 24px;
+    left: 61px;
+}
+
+.crater-6 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 55px;
+    left: 33px;
+}
+
+.crater-7 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 17px;
+    left: 46px;
+}
+
+.crater-8 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 28px;
+    left: 27px;
+}
+
+.crater-9 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 39px;
+    left: 17px;
+}
+
+.crater-10 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+
+    width: 4px;
+    height: 4px;
+    top: 25px;
+    left: 15px;
+}
+
+.crater-11 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 9px;
+    left: 28px;
+    border-radius: 10px;
+    background: #ECE1A8;
+    top: 37px;
+    left: 37px;
+}
+
+
+
+
+.drop-big-4{
+    left: 100px;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    z-index: 21;
+    bottom: 90px;
+    transform-origin: 50% 100%;
+    border-radius: 50%;
+    background: #7FC1F9;
+    opacity: 0.6;
+    animation: drop 2.4s linear 3.04s infinite;
+    animation-fill-mode: both;
+}
+
+
+
+@keyframes drop {
+	0% {
+		transform: translate3d(40px,-320px,0) scaleX(1) scaleY(1) rotate(17deg);
+	}
+	85% {
+		transform: translate3d(0,0,0) scaleX(1) scaleY(1) rotate(17deg);
+	}
+	100% {
+		transform: translate3d(0,0,0) scaleX(3) scaleY(0) rotate(0deg);
+	} 
+}
+
+@keyframes rise {
+	from {
+		transform: translate(-20px,200px);
+	}
+	to {
+		transform: translate(0,0px);
+	}
+}

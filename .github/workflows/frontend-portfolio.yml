@@ -7,10 +7,15 @@ on:
     paths:
       - 'Portfolio/frontend-portfolio/**'
       - '.github/workflows/frontend-portfolio*'
+   pull_request:
+      types: [opened, reopened,synchronize]
+
 permissions:
     id-token: write
     contents: read
+
 jobs:
+  
   frontend-portfolio:
      runs-on: ubuntu-latest
      timeout-minutes: 10
