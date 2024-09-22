@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "this ius p[roject create with the help of codewithdurgesh",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon ./src/index.js -e hbs,js"
-  },
+
+   "scripts": {
+      "start": "node ./src/index.js", 
+      "dev": "nodemon ./src/index.js -e hbs,js" 
+   },
   "author": "somnath-more",
   "license": "ISC",
   "dependencies": {
