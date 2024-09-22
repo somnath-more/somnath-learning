@@ -1,19 +1,21 @@
-# Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json into the container
-COPY package*.json ./
+# Copy package.json into the container
+COPY package.json ./
 
 # Install the necessary dependencies
 RUN npm install
 
 # Copy the rest of the application files into the container
 COPY . .
+
+# Set environment variables
 ENV PORT=5555
 ENV DB_CONNECTION_URL=mongodb://localhost/website_tut
+
 # Expose the port that the app will run on
 EXPOSE 5555
 

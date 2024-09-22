@@ -10,7 +10,7 @@ const Gallery = require('../models/Gallery');
 var nodemailer = require('nodemailer');
 router.get('/', async (req, res) => {
     // res.json({msg: 'Get all users'});
-    const details = await Zorro.findOne({ "_id": "66ead8e49cdd0817bad5ee44" })
+    const details = await Zorro.find()
     const slides = await Slider.find();
     // servises dynamic data
     const services = await Service.find();
@@ -21,14 +21,14 @@ router.get('/', async (req, res) => {
 
 router.get('/gallery', async (req, res) => {
     // res.json({msg: 'Get all users'});
-    const details = await Zorro.findOne({ "_id": "66ead8e49cdd0817bad5ee44" })
+    const details = await Zorro.find()
     const photos = await Gallery.find();
     res.render('gallery', { data: details, photos: photos })
 });
 //  Service page
 router.get('/service', async (req, res) => {
     // res.json({msg: 'Get all users'});
-    const details = await Zorro.findOne({ "_id": "66ead8e49cdd0817bad5ee44" })
+    const details = await Zorro.find()
     const services = await Service.find();
     res.render('service', {
         data: details,
@@ -41,13 +41,13 @@ router.get('/service', async (req, res) => {
 
 router.get('/about', async (req, res) => {
     // res.json({msg: 'Get all users'});
-    const details = await Zorro.findOne({ "_id": "66ead8e49cdd0817bad5ee44" })
+    const details = await Zorro.find()
     res.render('about', { data: details })
 });
 //  Cotnact Us page
 router.get('/contact-us', async (req, res) => {
     // res.json({msg: 'Get all users'});
-    const details = await Zorro.findOne({ "_id": "66ead8e49cdd0817bad5ee44" })
+    const details = await Zorro.find()
     res.render('contact', { data: details })
 });
 // handle foirm submitrou
