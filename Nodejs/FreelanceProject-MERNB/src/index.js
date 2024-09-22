@@ -114,34 +114,18 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/website_tut')
     //     ]
     // )
 
-    // Zorro.create({
-    //     brandName: "Infotech It Solutions", //
-    //     brandIconUrl: "/webapp/static/images/download.png", //
-    //     links: [
-    //         {
-    //             label: "Home",
-    //             url: "/"
-    //         },{
-    //             label: "Services",
-    //             url: "/service"
-    //         },{
-    //             label: "Gallery",
-    //             url: "/gallery"
-    //         },
-    //         {
-    //             label: "About Us",
-    //             url: "/about"
-    //         },
-    //         {
-    //             label: "Contact Us",
-    //             url: "/contact-us"
-    //         }
-    //     ]
-    // })
+    // Zorro.create([
+    //     { "label": "Home", "url": "/" },
+    //     { "label": "Services", "url": "/#services_section" },
+    //     { "label": "Gallery", "url": "/gallery"},
+    //     { "label": "About-Us", "url": "/#about_us" },
+    //     { "label": "Contact Us", "url": "/#contact_us_section" }
+    //     ])
+    
 })
    .catch(err => console.error(err));
 
-// Registering the partial
+// Registering the partiald
 const path = require('path');
 
 hbs.registerPartials('views/partials');

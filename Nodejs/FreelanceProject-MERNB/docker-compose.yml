@@ -2,35 +2,38 @@ version: '3'
 services:
   app:
     build:
-      context: .
+      context: . # Make sure your Dockerfile is located here
       dockerfile: Dockerfile
     container_name: node-app
-    working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
     ports:
-      - '5555:5555'
+      - '5555:5555' # Expose your app on port 5555
     environment:
       - PORT=5555
-      - DB_CONNECTION_URL=mongodb://mongo:27017/website_tut
+      - DB_CONNECTION_URL=mongodb://mongo:27017/website_tut # MongoDB connection
     depends_on:
-      - mongo
-    command: npm start
+      - mongo # Ensure MongoDB container starts first
+    command: npm start # Start the Node.js app
     networks:
       - node-network
 
   mongo:
-    image: mongo:latest
+    image: mongo:latest # Use latest MongoDB image
     container_name: mongodb
     environment:
-      MONGO_INITDB_DATABASE: website_tut
+      MONGO_INITDB_DATABASE: website_tut # Initialize the database
     volumes:
-      - mongodb_data:/data/db # Mount a volume to persist MongoDB data
+      - mongodb_data:/data/db # Persist MongoDB data
     ports:
-      - '27017:27017'
+      - '27017:27017' # Expose MongoDB port
     networks:
       - node-network
 
+# Persist data across container restarts
 volumes:
   mongodb_data:
-    driver: local # This is the Docker volume where MongoDB data will be stored
+    driver: local
+
+# Network definition
+networks:
+  node-network:
+    driver: bridge
