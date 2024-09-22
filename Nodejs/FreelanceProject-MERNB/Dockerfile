@@ -12,7 +12,8 @@ RUN npm install
 
 # Copy the rest of the application files into the container
 COPY . .
-
+ENV PORT=5555
+ENV DB_CONNECTION_URL=mongodb://localhost/website_tut
 # Expose the port that the app will run on
 EXPOSE 5555
 
