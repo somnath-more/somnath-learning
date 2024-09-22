@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          context: .
+          context: Nodejs/FreelanceProject-MERNB/
           tags: |
             ghcr.io/somnath-more/nodejs-portfolio:latest
             ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
