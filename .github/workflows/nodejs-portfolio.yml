@@ -30,11 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Skip build if unnecessary
-      # If you're not using React or bundling, skip the build
-      # - name: Build the app
-      #   run: npm run build
-
       - name: Login to GHCR Registry
         uses: docker/login-action@v1
         with:
@@ -51,7 +46,7 @@ jobs:
             ghcr.io/somnath-more/nodejs-portfolio:latest
             ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
 
-      - name: Deploy on EC2
+      - name: Deploy on EC2 and run docker-compose
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USER: ${{ secrets.EC2_USER }}
@@ -62,9 +57,10 @@ jobs:
           chmod 400 key.pem
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_HOST@$EC2_USER << EOF
           docker login ghcr.io -u ${{ github.actor }} -p $PAT_TOKEN
-          docker pull ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
-          docker stop nodejs-portfolio || true
-          docker rm nodejs-portfolio || true
-          docker run -itd -p 5555:5555 --name=nodejs-portfolio ghcr.io/somnath-more/nodejs-portfolio:${{ github.sha }}
-          echo "Deployed on EC2 successfully!"
+          docker pull ghcr.io/somnath-more/nodejs-portfolio:latest
+          ls | wc
+          cd Nodejs/FreelanceProject-MERNB # Navigate to where docker-compose.yml is located
+          docker-compose down # Optional: Stop any existing containers
+          docker-compose up -d # Start the updated containers with the new image
+          echo "Deployed successfully with Docker Compose!"
           EOF

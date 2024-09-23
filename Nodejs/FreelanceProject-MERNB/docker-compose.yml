@@ -1,9 +1,7 @@
 version: '3'
 services:
   app:
-    build:
-      context: . # Make sure your Dockerfile is located here
-      dockerfile: Dockerfile
+    image: ghcr.io/somnath-more/nodejs-portfolio:latest
     container_name: node-app
     ports:
       - '5555:5555' # Expose your app on port 5555
