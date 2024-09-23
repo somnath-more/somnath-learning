@@ -14,7 +14,7 @@ COPY . .
 
 # Set environment variables
 ENV PORT=5555
-ENV DB_CONNECTION_URL=mongodb://localhost/website_tut
+ENV DB_CONNECTION_URL=mongodb://mongo::27017/website_tut
 
 # Expose the port that the app will run on
 EXPOSE 5555
