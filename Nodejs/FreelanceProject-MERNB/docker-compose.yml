@@ -1,4 +1,4 @@
-version: '3'
+version: '3' # Version of Docker Compose
 services:
   app:
     image: ghcr.io/somnath-more/nodejs-portfolio:latest
@@ -18,7 +18,7 @@ services:
     image: mongo:latest # Use latest MongoDB image
     container_name: mongodb
     environment:
-      MONGO_INITDB_DATABASE: website_tut # Initialize the database
+      - MONGO_INITDB_DATABASE=website_tut # Initialize the database
     volumes:
       - mongodb_data:/data/db # Persist MongoDB data
     ports:
