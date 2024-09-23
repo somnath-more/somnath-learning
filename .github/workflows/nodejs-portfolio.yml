@@ -59,7 +59,7 @@ jobs:
           docker login ghcr.io -u ${{ github.actor }} -p $PAT_TOKEN
           docker pull ghcr.io/somnath-more/nodejs-portfolio:latest
           ls -lh
-          cd Nodejs/FreelanceProject-MERNB # Navigate to where docker-compose.yml is located
+          cd somnath-learning/Nodejs/FreelanceProject-MERNB # Navigate to where docker-compose.yml is located
           docker-compose down # Optional: Stop any existing containers
           docker-compose up -d # Start the updated containers with the new image
           echo "Deployed successfully with Docker Compose!"
