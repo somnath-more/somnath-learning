@@ -1,0 +1,56 @@
+
+.container {
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    transform: translate(-50%, -50%);
+    background-color: aqua;
+    left: 50%; /* Fix centering */
+    top: 50%;
+    z-index: 1; /* Bring it above background */
+}
+
+.kesari {
+    position: relative;
+    top: 0px;
+    height: 100px;
+    width: 400px;
+    background-color: orange;
+}
+
+.white {
+    position: relative;
+    top: 0px; /* Reset top */
+    height: 100px; /* Fix the height to be visible */
+    width: 400px;
+    background-color: rgb(243, 243, 243);
+}
+
+.green {
+    position: relative;
+    top: 0px;
+    height: 100px;
+    width: 400px;
+    background-color: rgb(32, 246, 21);
+}
+
+.ashokchkra {
+    position: relative;
+    top: -85px; /* Adjust position so it's centered on the white section */
+    left: 150px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: blue; /* Use background-color for Ashok Chakra */
+    z-index: 12;
+    animation: chakra 2s infinite linear; /* Add a reasonable duration and linear animation */
+}
+
+@keyframes chakra {
+    0%, 100% {
+        transform: rotate(360deg);
+    }
+    50% {
+        transform: rotate(-360deg);
+    }
+}

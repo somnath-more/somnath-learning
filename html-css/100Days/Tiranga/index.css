@@ -1,0 +1,87 @@
+.bharat{
+    position: relative;
+    height: 700px;
+    width: 420px;
+    background: rgb(253, 253, 252);
+}
+.pole{
+    height: 700px;
+    width: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px rgba(222, 204, 204, 0.333);
+    background-color: rgb(88, 12, 12) !important;
+   
+}
+
+.rope {
+    position: absolute;
+    top: 0;
+    left: 20px; /* Start the rope from the pole */
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 25%, green 25%, green 50%, transparent 50%, transparent 75%, green 75%, green); /* Create zigzag */
+    background-size: 10px 10px; /* Define the size of each zigzag pattern */
+    z-index: 2; /* Adjust the z-index to make sure it appears between the pole and the flag */
+}
+.container{
+    position: absolute;
+    top: 0px;
+    left: 20px; 
+    
+
+}
+.kesari{
+   position: relative;
+   top: 0px;
+   height: 100px;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+   width: 400px;
+   background-color: orange;
+   border-radius: 10px;
+
+
+}
+.white{
+    position: relative;
+    top: 0px;
+    height: 100px;
+    width: 400px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+}
+.green{
+    position: relative;
+    top: 0px;
+    height: 100px;
+    width: 400px;
+    background-color: rgb(14, 122, 8);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+}
+
+.ashokchkra {
+    position: absolute;
+    top: 50%; /* Centering in the white section */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+    animation: chakra 5s infinite linear;
+    /* border-top-color: transparent;
+    border-right-color: transparent; */
+    /* z-index: 5; Ensure it's above the white section */
+}
+
+@keyframes chakra {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Keep centered */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Rotate the chakra */
+    }
+}
