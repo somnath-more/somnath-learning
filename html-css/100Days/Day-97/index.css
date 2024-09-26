@@ -1,0 +1,159 @@
+/* Frame container for the puppet */
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: #8e44ad;
+    color: #fff;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Puppet styling */
+  .puppet {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  
+  /* Puppet head */
+  .puppet .head {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px auto;
+    background: #fff;
+    border-radius: 50%;
+  }
+  
+  /* Puppet body */
+  .puppet .body {
+    position: relative;
+    height: 100px;
+    width: 50px;
+    background: #fff;
+  }
+  
+  /* Puppet arms */
+  .puppet .body .arm {
+    position: absolute;
+    top: 0;
+  }
+  .puppet .body .arm-left {
+    left: -10px;
+  }
+  .puppet .body .arm-left .upper {
+    transform: rotate(20deg);
+  }
+  .puppet .body .arm-left .lower {
+    transform: rotate(-5deg);
+  }
+  
+  /* Right arm with animation */
+  .puppet .body .arm-right {
+    right: -10px;
+  }
+  
+  .puppet .body .arm-right .upper {
+    transform: rotate(-75deg);
+    animation: upper 1s ease-in-out infinite alternate;
+  }
+  
+  .puppet .body .arm-right .lower {
+    transform: rotate(-75deg);
+    animation: lower 1s ease-in-out infinite alternate;
+  }
+
+  .puppet .body .arm .upper {
+    position: relative;
+    height: 50px;
+    width: 16px;
+    background: #fff;
+    border-radius: 8px;
+    transform-origin: 8px 8px;
+    
+  }
+  .puppet .body .arm .lower {
+    position: relative;
+    height: 50px;
+    width: 16px;
+    background: #a30000;
+    border-radius: 8px;
+    transform-origin: 8px 8px;
+    /* bottom: -36px; */
+    bottom: -36px;
+    left: 0;
+  }
+  
+  /* Puppet legs */
+  .puppet .body .leg {
+    position: absolute;
+    top: 78px;
+  }
+  
+  /* Left leg */
+  .puppet .body .leg-left {
+    left: 0px;
+  }
+  
+  /* Right leg */
+  .puppet .body .leg-right {
+    right: 0px;
+  }
+/* Upper part of legs */
+
+.puppet .body .leg .upper {
+  position: relative;
+  height: 70px;
+  width: 24px;
+  background: #fff;
+  border-radius: 12px;
+  transform-origin: 12px 12px;
+}
+
+/* Lower part of legs */
+.puppet .body .leg .lower {
+  position: absolute;
+  height: 70px;
+  width: 24px;
+  bottom: -46px;
+  left: 0;
+  background: #fff;
+  border-radius: 12px;
+  transform-origin: 12px 12px;
+}
+.puppet .body .leg-right{
+    right: 0px;
+}
+
+
+.puppet .body .leg-right{
+    right: 0px;
+}
+
+@keyframes upper {
+    0%{
+        transform: rotate(-75deg);
+    }
+    100%{
+        transform: rotate(-85deg);
+    }
+}
+
+@keyframes lower {
+    0%{
+        transform: rotate(-105deg);
+    }
+    100%{
+        transform: rotate(-70deg);
+    }
+}
