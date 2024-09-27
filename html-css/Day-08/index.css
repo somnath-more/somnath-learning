@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Makes the layout responsive */
+    margin: 20px;
+}
+
+.main-content {
+    flex: 5; /* Takes up more space */
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.sidebar {
+    flex: 1; /* Takes up less space */
+    background-color: #ddd;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks the main content and sidebar vertically */
+    }
+    .main-content {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
