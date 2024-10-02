@@ -1,0 +1,28 @@
+.hovereffect{
+
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #34db42;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* adding hover effect */
+    &:hover{
+        background-color: #4a33cc;
+        transform: translateY(-3px);
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #bf5c5c;
+    margin: 0;
+}
+
+

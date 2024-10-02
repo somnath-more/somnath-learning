@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Reusable Button</title>
+    <style>
+        /* Button base style */
+        .btn {
+            padding: 10px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d70909;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            outline: none;
+        }
+
+        /* Hover effect */
+        .btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.4);
+        }
+
+        /* Additional style for different button colors (optional) */
+        .btn-secondary {
+            background-color: #6C757D;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5A6268;
+        }
+
+        .btn-success {
+            background-color: #28A745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive button sizing */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Stylish Reusable Button -->
+    <button class="btn">Click Me</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-success">Success</button>
+
+</body>
+</html>
