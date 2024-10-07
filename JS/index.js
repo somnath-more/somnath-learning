@@ -16,7 +16,28 @@
 
 // myPromise.then((data) => console.log(data)).catch((err) => console.log(err));
 
-import sachin from "./one.js"; // Make sure the path to one.js is correct
+// import sachin from "./one.js"; // Make sure the path to one.js is correct
 
-console.log("Starting...");
-console.log(sachin.name); // Should output 'Sachin Tendulkar'
+// console.log("Starting...");
+// console.log(sachin.name); // Should output 'Sachin Tendulkar'
+
+
+// interview with procodder
+
+// function calc(){
+//     console.log(x)
+//     x=10;
+// }
+// calc();
+// foo(); 
+// var foo=4;
+// function foo(){
+//   console.log("foo");
+// }
+// foo(); 
+
+for(let i=1;i<=3;i++){
+    setTimeout(function(){
+        console.log(i);
+    }, 1000);
+}

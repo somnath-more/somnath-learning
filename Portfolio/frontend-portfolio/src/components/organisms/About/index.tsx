@@ -111,7 +111,7 @@ const About = () => {
   return (
     <AboutBox>
       <Heading>About Me</Heading>
-      <StyledAvatar src="sunset.jpg" alt="Your Photo" />
+      <StyledAvatar src="mypic.jpg" alt="Your Photo" />
 
       <Section>
         <SubHeading>Personal Details</SubHeading>
