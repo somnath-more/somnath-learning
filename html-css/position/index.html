@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: blue;
+            padding: 40px;
+        }
+
+        .container {
+            border: 2px solid black;
+            width: 100%;
+            height: 3444px;
+            background-color: khaki;
+        }
+
+        /* position: static */
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        #box3 {
+            position: static;
+            background-color: chocolate;
+            top: 30px;
+        }
+
+        #box1 {
+            /* Stays fixed relative to the viewport */
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            background-color: rgb(237, 20, 20);
+        }
+
+        #box2 {
+            /* Sticks when it reaches 40px from the top of the viewport */
+            position: sticky;
+            top: 40px;
+            background-color: rgb(34, 255, 0);
+        }
+
+        #box4 {
+            position: relative;
+            top: 44px;
+            left: 35px;
+            background-color: rgb(231, 19, 150);
+        }
+        .spacer {
+            height: 200px;
+            background-color: lightgray;
+        }
+        #box5{
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            background-color: darkmagenta;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Spacer added before sticky element -->
+        <div class="spacer">Scroll down to see the sticky effect</div>
+
+        <div class="box" id="box1">
+            1 (Fixed):Chat with us
+        </div>
+        <div class="box" id="box2">
+            2 (Sticky)
+        </div>
+        <div class="box" id="box3">
+           Static : top bar
+        </div>
+        <div class="box" id="box4">
+            4 (Relative)
+        </div>
+        <div class="box" id="box5">
+           5 (Absolute)
+        </div>
+    </div>
+
+</body>
+
+</html>
