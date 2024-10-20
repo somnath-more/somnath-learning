@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title My Flower
+    link rel="stylesheet" href="index.scss" type="text/css"
+  body
+    h1 halav
+    .frame
+      .flower onclick="void(0);"
+        - for i in 0..15
+          div class="leaf leaf-#{i}"
+      .((({dot})))

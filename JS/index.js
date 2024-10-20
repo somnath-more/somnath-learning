@@ -1,5 +1,7 @@
 // const arr=[1,2,3];
 
+const { log } = require("console");
+
 // const sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 // console.log(sum);
@@ -36,8 +38,46 @@
 // }
 // foo(); 
 
-for(let i=1;i<=3;i++){
-    setTimeout(function(){
-        console.log(i);
-    }, 1000);
-}
+// for(let i=1;i<=3;i++){
+//     setTimeout(function(){
+//         console.log(i);
+//     }, 1000);
+// }
+
+// console.log('a')
+
+// setTimeout(function(){
+//     console.log('b')
+// }, 0)
+// console.log('c')
+// ['c', 'd', 'e', 'f', 'g'].forEach(element => {
+//     console.log(element);
+// });
+// console.log("end");
+
+
+// function hello() {
+    
+    
+    
+    
+//     console.log("Hello World!");
+
+
+// }
+
+
+// 
+// type of is : to check data type of the variable
+// var a=()=> {};
+// var a=[1,3,4]
+// console.log(typeof a);
+// var a="hello";
+// //  Number , Object , Function ,boolean,string ,undefine
+// // Object [] and {}
+// console.log(typeof ab);
+// let ab;
+const [a, ,c]=[1,2,3];
+console.log(a,b);
+git config --global user.name "somnath-more"
+git config --global user.email "somnath.more19@vit.edu"
