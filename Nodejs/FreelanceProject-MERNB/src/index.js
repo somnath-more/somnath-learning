@@ -51,7 +51,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/website_tut')
     // ])
     // Service.create([
     //     {
-    //       "icon": "fa fa-tree",
+    //       "icon": "https://img.freepik.com/free-photo/view-nature-landscape-with-forest_23-2150763618.jpg?t=st=1728889477~exp=1728893077~hmac=9b2079d8ecc7da393f37d5b8d2d34ba20d5ef5122bed6ce211cb430479209941&w=1380",
     //       "title": "National Park",
     //       "description": "Explore the beauty of nature with scenic trails and wildlife.",
     //       "link1": "https://example.com/national-park",
@@ -60,8 +60,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/website_tut')
     //       "link2Text": "Book Now"
     //     },
     //     {
-    //       "icon": "fa fa-mountain",
-    //       "title": "Mountain Hiking",
+    //       "icon": "https://www.tadobanationalpark.in/images/tadoba-national-park5.jpg",
+    //       "title": "Tadoba National Park",
     //       "description": "Join us for an unforgettable hiking experience in the mountains.",
     //       "link1": "https://example.com/mountain-hiking",
     //       "link1Text": "Explore Trails",
@@ -69,8 +69,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/website_tut')
     //       "link2Text": "Book a Tour"
     //     },
     //     {
-    //       "icon": "fa fa-beach",
-    //       "title": "Beach Getaway",
+    //       "icon": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRXWfaemgHcFHGGMUk-TinGSARPeHsW2ugprs2WLmCFK-NkgyhyHEpuTRaLnDkMgw0klfEgJu22Kdpl-B3z47K0KjU471aHJmYB6iqU8w",
+    //       "title": "Anjuna Beach,Goa",
     //       "description": "Relax on the beautiful beaches and enjoy water activities.",
     //       "link1": "https://example.com/beach-getaway",
     //       "link1Text": "Discover Beaches",

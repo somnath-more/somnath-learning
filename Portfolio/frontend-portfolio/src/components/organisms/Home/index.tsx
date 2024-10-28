@@ -84,33 +84,47 @@ const Home = () => {
       <Heading>Welcome to My Portfolio</Heading>
       <Text>{texts[currentTextIndex]}</Text>
 
-      <Box sx={{ display: "flex", gap: 2, mt: "30px" ,  }}>
-        <StyledIconButton bgcolor="#0077B5">
-        <Tooltip title="LinkedIn" arrow>
-          <LinkedInIcon />
-          </Tooltip>
+      <Box sx={{ display: "flex", gap: 2, mt: "30px" }}>
+  <a href="https://www.linkedin.com/in/somnathmore83" target="_blank" rel="noopener noreferrer">
+    <StyledIconButton bgcolor="#0077B5">
+      <Tooltip title="LinkedIn" arrow>
+        <LinkedInIcon />
+      </Tooltip>
+    </StyledIconButton>
+  </a>
+
+  <a href="https://www.instagram.com/somnathmore83" target="_blank" rel="noopener noreferrer">
+    <StyledIconButton bgcolor="#E1306C">
+      <Tooltip title="Instagram">
+        <InstagramIcon />
+      </Tooltip>
+    </StyledIconButton>
+  </a>
+
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <StyledIconButton bgcolor="#3b5998">
+      <Tooltip title="Facebook" arrow>
+        <FacebookIcon />
+      </Tooltip>
+    </StyledIconButton>
+  </a>
+
+  <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+    <StyledIconButton bgcolor="#1DA1F2">
+      <Tooltip title="Twitter" arrow>
+        <TwitterIcon />
+      </Tooltip>
+    </StyledIconButton>
+  </a>
+
+  <a href="https://www.github.com/somnath-more" target="_blank" rel="noopener noreferrer">
+    <StyledIconButton bgcolor="#333333">
+      <Tooltip title="Github" arrow>
+        <GitHubIcon />
+        </Tooltip>
         </StyledIconButton>
-        <StyledIconButton bgcolor="#E1306C">
-        <Tooltip title="Instagram">
-          <InstagramIcon />
-          </Tooltip>
-        </StyledIconButton>
-        <StyledIconButton bgcolor="#3b5998" >
-        <Tooltip title="Facebook" arrow>
-          <FacebookIcon />
-          </Tooltip>
-        </StyledIconButton>
-        <StyledIconButton bgcolor="#1DA1F2">
-        <Tooltip title="Twitter" arrow>
-          <TwitterIcon />
-          </Tooltip>
-        </StyledIconButton>
-        <StyledIconButton bgcolor="#333333">
-        <Tooltip title="Github" arrow>
-          <GitHubIcon />
-          </Tooltip>
-        </StyledIconButton>
-      </Box>
+    </a>
+   </Box>
     </HomeBox>
   );
 };

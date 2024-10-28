@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+#question-container {
+    margin-bottom: 20px;
+}
+#code-editor {
+    width: 100%;
+    height: 150px;
+    font-family: monospace;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+}
+button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#output {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    white-space: pre-wrap; /* Allows line breaks in output */
+}
