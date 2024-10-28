@@ -65,7 +65,10 @@ jobs:
             docker pull ghcr.io/somnath-more/nodejs-portfolio:latest
 
             # Change to the directory where docker-compose.yml is located
-            cd root/
+            pwd
+            # list all the files
+            ls -lh
+
 
             # Stop and remove existing containers (if any)
             docker-compose down || true
