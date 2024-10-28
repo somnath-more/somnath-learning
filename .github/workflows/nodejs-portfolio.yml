@@ -71,7 +71,9 @@ jobs:
 
 
             # Stop and remove existing containers (if any)
-            docker-compose down || true
+            docker-compose down
+            # check docker processes
+            docker ps
 
             # Start the application using docker-compose up
             docker-compose up -d
