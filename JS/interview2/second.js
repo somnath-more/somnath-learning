@@ -14,7 +14,21 @@ console.log(5 - '5');
 // 4. Equality vs. Strict Equality
 console.log(5 == '5');
 console.log(5 === '5');
+setTimeout(() => {
+    console.log("1");
+}, 0);
+console.log("2");
 
+setTimeout(() => {
+    console.log("Macrotask - setTimeout");
+  }, 0);
+  
+  Promise.resolve().then(() => {
+    console.log("Microtask - Promise");
+  });
+  
+  console.log("Synchronous - End of script");
+  
 // 5. Variable Scope in Functions
 function xyz() {
     var a = b = 4; 
