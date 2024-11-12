@@ -30,15 +30,19 @@ const LeftGrid = styled(Grid)({
   gap: "20px",
 });
 
-// Navbar item styling for desktop
-const NavItem = styled(Typography)({
-  color: "#ffffff",
+interface NavItemProps {
+  active: boolean;
+}
+const NavItem = styled(Typography)<NavItemProps>(({ active }) => ({
+  color: active ? "red" : "#ffffff",
   cursor: "pointer",
-  transition: "color 0.3s",
+  transition: "color 0.3s, background-color 0.3s",
   "&:hover": {
-    color: "#61dafb", // Highlight color on hover
+    color: "#61dafb",
+    transition: 'scale(0.4)'
   },
-});
+}));
+
 
 // Drawer box styling for mobile
 const DrawerBox = styled(Box)({
@@ -61,7 +65,6 @@ const NavBarElement = [
   { label: "About", path: "/about" },
   {label: "Skill", path: "/skills"},
   { label: "Contact", path: "/contact" },
-  { label: "Visitor", path: "/visitor" },
   { label: "Projects", path: "/projects" },
   { label: "Notes", path: "/notes"}
   
@@ -70,10 +73,17 @@ const NavBarElement = [
 const NavBar = () => {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
-
+   const [activeTab,setActivetab] = useState('Home');
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const handleNavBarNavigation = (item:any) => {
+    
+    setActivetab(item.label);
+       navigate(item.path);
+
+  }
 
   const PortFolioText = styled(Typography)({
     color: "white",
@@ -100,7 +110,7 @@ const NavBar = () => {
       <Box sx={{ display: { xs: "none", sm: "block" } }}>
         <LeftGrid>
           {NavBarElement.map((item) => (
-            <NavItem key={item.label} onClick={() => navigate(item.path)}>
+            <NavItem key={item.label} active={activeTab === item.label ? true :false} onClick={()=>handleNavBarNavigation(item)}>
               {item.label}
             </NavItem>
           ))}
