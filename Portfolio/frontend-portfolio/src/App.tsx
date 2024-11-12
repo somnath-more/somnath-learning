@@ -5,6 +5,11 @@ import HomePage from './components/pages/Home';
 import VisitorPage from './components/pages/Visitor';
 import { Route, Routes } from 'react-router';
 import AboutPage from './components/pages/About';
+import SkillPage from './components/pages/SkillPage';
+import ProjectPage from './components/pages/ProjectPage';
+import NotesPage from './components/pages/NotesPage';
+import AddNotesPage from './components/pages/AddNotePage';
+
 
 function App() {
   return (
@@ -15,8 +20,13 @@ function App() {
        <Route path="/contact" element={<ContactPage/>} />
        <Route path="/visitor" element={<VisitorPage/>} />
        <Route path="/about"   element={<AboutPage/>} />
+       <Route path="/skills"   element={<SkillPage/>} />
+       <Route path="/projects" element={<ProjectPage/>} />
+       <Route path="/notes" element={<NotesPage/>} />
+       <Route path="/add-notes" element={<AddNotesPage/>} />
   
      </Routes>
+
   );
 }
 

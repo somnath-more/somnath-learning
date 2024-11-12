@@ -26,7 +26,7 @@ app.set('views','views');
 // 
 
 dotenv.config()
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://mongo:27017/website_tut')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/website_tut')
    .then(() => {
     console.log('Connected to MongoDB')
 

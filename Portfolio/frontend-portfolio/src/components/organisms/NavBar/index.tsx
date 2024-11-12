@@ -59,8 +59,12 @@ const DrawerListItem = styled(ListItem)({
 const NavBarElement = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
+  {label: "Skill", path: "/skills"},
   { label: "Contact", path: "/contact" },
   { label: "Visitor", path: "/visitor" },
+  { label: "Projects", path: "/projects" },
+  { label: "Notes", path: "/notes"}
+  
 ];
 
 const NavBar = () => {
