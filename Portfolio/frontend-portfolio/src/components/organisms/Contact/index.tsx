@@ -10,7 +10,7 @@ const ContactContainer = styled(Grid)({
   margin: "0 auto",
   padding: "40px",
   borderRadius: "12px",
-  boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
+  // boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
 });
 
 const Heading = styled(Typography)({

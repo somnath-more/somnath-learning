@@ -1,4 +1,4 @@
-import { SkillComponent } from "../Types";
+import { NavBarElementType, SkillComponent } from "../Types";
 
 // Skill Data
 export const SKILL_DATA: SkillComponent[] = [
@@ -48,3 +48,69 @@ export const SKILL_DATA: SkillComponent[] = [
     }
   }
 `;
+
+export const PROJECT_DATA = [
+  {
+    id: 1,
+    name: "My PortFolio",
+    link: "https://somnath-portfolio.codemaya.in",
+    githubLink: "https://github.com/somnath-more/somnath-learning",
+    tools: ["React", "TypeScript", "Bootstrap", "AWS", "Docker", "EC2"],
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc id facilisis ullamcorper, felis ligula facilisis nunc, et efficitur arcu nisi et velit.",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 2,
+    name: "Travel adventure",
+    link: "https://traveladventure.codemaya.in",
+    githubLink: "https://github.com/somnath-more/somnath-learning",
+    tools: [
+      "React",
+      "TypeScript",
+      "NodeJS",
+      "ExpressJS",
+      "Jest",
+      "Bootstrap",
+      "AWS",
+      "Docker",
+      "EC2",
+    ],
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc id facilisis ullamcorper, felis ligula facilisis nunc, et efficitur arcu nisi et velit.",
+    image: "https://images.unsplash.com/photo-1490077476659-095159692ab5?q=80&w=2051&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 3,
+    name: "CryptoHub",
+    link: "https://minet-portfolio.codemaya.in",
+    githubLink: "https://github.com/somnath-more/somnath-learning",
+    tools: [
+      "React",
+      "TypeScript",
+      "SpringBoot",
+      "Swagger",
+      "Rest",
+      "Mockito",
+      "NodeJS",
+      "ExpressJS",
+      "Bootstrap",
+      "AWS",
+      "Docker",
+      "EC2",
+    ],
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc id facilisis ullamcorper, felis ligula facilisis nunc, et efficitur arcu nisi et velit.",
+    image: "https://media.istockphoto.com/id/1317452510/photo/bitcoin-gold-stock-photo.jpg?s=2048x2048&w=is&k=20&c=Wi7KTmz6YF8GbpGryhM6KlsF0Fwia3ffxVwkI-nmJwU=",
+  },
+]
+
+
+export const NAVBARELEMENTS: NavBarElementType[] = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Skill", path: "/skills" },
+  { label: "Contact", path: "/contact" },
+  { label: "Projects", path: "/projects" },
+  { label: "Notes", path: "/notes" },
+];

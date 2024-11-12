@@ -12,3 +12,7 @@ export interface SkillComponent {
  export  interface CustomSkillCompProps {
     skillList: SkillComponent[];
   }
+  export interface NavBarElementType {
+    label: string;
+    path: string;
+  }

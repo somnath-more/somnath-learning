@@ -5,12 +5,14 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { CustomSkillCompProps } from "../../Types";
 import { SKILL_DATA } from "../../Constants";
+import { keyframes } from "@emotion/react"; 
 
 
 
 // Styled Components
 const SkillBox = styled(Box)({
   display: "flex",
+  
   flexWrap: "wrap",
   gap: "10px",
   marginTop: "20px",
@@ -45,8 +47,9 @@ const Title = styled(Typography)({
   marginBottom: "10px",
 });
 
-const ScrollableContainer = styled(Box)({
-  maxHeight: "90vh", // makes the container scrollable
+const Container = styled(Box)({
+  // maxHeight: "90vh", // makes the container scrollable
+  height: 'auto',
   overflowY: "auto",
   paddingBottom: "20px",
   marginTop: "20px",
@@ -65,7 +68,15 @@ const CustomButton = styled(Button)({
   }
 });
 
-
+const fadeIn = keyframes`fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
 
 const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
   const navigate = useNavigate();
@@ -87,7 +98,7 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
     <SkillBox>
      
       {skillList.map((skill) => (
-        <MuiStack key={skill.id} m={1} gap={2}>
+        <MuiStack key={skill.id} m={1} gap={2} style={{ animation: `${fadeIn} 1s ease` }}>
           <Typography variant="h6">{skill.name}</Typography>
           <CircularProgress size="lg" determinate value={skill.proficiency}>
             <Typography variant="body2">{skill.proficiency}%</Typography>
@@ -99,14 +110,14 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
               color="success"
               onClick={() => handleButtonClick("Notes")}
             >
-              View Projects
+              {skill.name} Projects
             </CustomButton>
             <CustomButton
               size="small"
               color="success"
               onClick={() => handleButtonClick("Projects")}
             >
-              View Notes
+               View Notes
             </CustomButton>
           </ButtonBox>
         </MuiStack>
@@ -119,7 +130,7 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
 const Skills = () => {
   return (
 
-    <ScrollableContainer>
+    <Container>
       <Title>Frontend</Title>
       <CustomSkillComp skillList={SKILL_DATA.filter((value) => value.skillType === "Frontend")} />
 
@@ -142,7 +153,7 @@ const Skills = () => {
             value.skillType !== "Frontend"
         )}
       />
-    </ScrollableContainer>
+    </Container>
   );
 };
 

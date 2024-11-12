@@ -12,16 +12,18 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { NAVBARELEMENTS } from "../../Constants";
+import { NavBarElementType } from "../../Types";
 
-// Navbar container
+// Navbar container styling
 const OuterNavBar = styled(Box)({
-  backgroundColor: "#282c34", // Dark background for a modern look
+  backgroundColor: "#282c34",
   padding: "10px 20px",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
 });
 
 const LeftGrid = styled(Grid)({
@@ -33,71 +35,63 @@ const LeftGrid = styled(Grid)({
 interface NavItemProps {
   active: boolean;
 }
+
+// NavItem with hover, active styling, and background color transition
 const NavItem = styled(Typography)<NavItemProps>(({ active }) => ({
   color: active ? "red" : "#ffffff",
   cursor: "pointer",
-  transition: "color 0.3s, background-color 0.3s",
+  padding: "5px 15px",
+  borderRadius: "8px",
+  backgroundColor: active ? "rgba(97, 218, 251, 0.2)" : "transparent",
+  transition: "color 0.3s, background-color 0.3s, transform 0.3s",
   "&:hover": {
     color: "#61dafb",
-    transition: 'scale(0.4)'
+    transform: "scale(1.05)",
   },
 }));
 
-
-// Drawer box styling for mobile
 const DrawerBox = styled(Box)({
-  backgroundColor: "#282c34", // Same background as navbar
-  color: "#ffffff", // Text color
+  backgroundColor: "#282c34",
+  color: "#ffffff",
   height: "100%",
 });
 
-// Drawer list item styling
 const DrawerListItem = styled(ListItem)({
   padding: "15px 20px",
   "&:hover": {
-    backgroundColor: "#333", // Darker background on hover
+    backgroundColor: "#333",
   },
 });
-
-// Navbar items configuration
-const NavBarElement = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  {label: "Skill", path: "/skills"},
-  { label: "Contact", path: "/contact" },
-  { label: "Projects", path: "/projects" },
-  { label: "Notes", path: "/notes"}
-  
-];
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
-   const [activeTab,setActivetab] = useState('Home');
+  const [activeTab, setActiveTab] = useState("Home");
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleNavBarNavigation = (item:any) => {
-    
-    setActivetab(item.label);
-       navigate(item.path);
-
-  }
+  const handleNavBarNavigation = (item: NavBarElementType) => {
+    setActiveTab(item.label);
+    navigate(item.path);
+    setMobileOpen(false); // Close Drawer after navigation on mobile
+  };
 
   const PortFolioText = styled(Typography)({
     color: "white",
     fontWeight: "bold",
   });
+
   const drawer = (
     <DrawerBox>
       <List>
-        {NavBarElement.map((navabar) => (
+        {NAVBARELEMENTS.map((navItem) => (
           <DrawerListItem
-            key={navabar.label}
-            onClick={() => navigate(navabar.path)}
+            key={navItem.label}
+            onClick={() => handleNavBarNavigation(navItem)}
           >
-            <ListItemText primary={navabar.label} />
+            <ListItemText primary={navItem.label} />
           </DrawerListItem>
         ))}
       </List>
@@ -107,15 +101,23 @@ const NavBar = () => {
   return (
     <OuterNavBar>
       <PortFolioText variant="h4">Somnath More</PortFolioText>
+
+      {/* Desktop Navbar */}
       <Box sx={{ display: { xs: "none", sm: "block" } }}>
         <LeftGrid>
-          {NavBarElement.map((item) => (
-            <NavItem key={item.label} active={activeTab === item.label ? true :false} onClick={()=>handleNavBarNavigation(item)}>
+          {NAVBARELEMENTS.map((item) => (
+            <NavItem
+              key={item.label}
+              active={activeTab === item.label}
+              onClick={() => handleNavBarNavigation(item)}
+            >
               {item.label}
             </NavItem>
           ))}
         </LeftGrid>
       </Box>
+
+      {/* Mobile Menu Icon */}
       <Box sx={{ display: { xs: "block", sm: "none" } }}>
         <IconButton
           edge="start"
@@ -126,6 +128,8 @@ const NavBar = () => {
           <MenuIcon style={{ color: "#ffffff" }} />
         </IconButton>
       </Box>
+
+      {/* Drawer for Mobile Navigation */}
       <Drawer
         anchor="left"
         open={mobileOpen}

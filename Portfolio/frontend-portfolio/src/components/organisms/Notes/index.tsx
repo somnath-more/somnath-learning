@@ -23,12 +23,11 @@ const ButtonBox = styled(Box)({
 });
 
 const NoteBox = styled(Box)({
-  width: "100%",
   backgroundColor: "#fff",
   borderRadius: "8px",
   padding: "15px",
   marginBottom: "15px",
-  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.05)", // Subtle shadow for notes
+  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.05)",
   transition: "transform 0.3s ease, background-color 0.3s ease",
   "&:hover": {
     transform: "scale(1.02)", // Slightly enlarge on hover
@@ -56,6 +55,7 @@ const NoteType = styled(Typography)({
 });
 
 const CustomButton = styled(Button)({
+  display: 'flex',
   padding: "10px 20px",
   width: "20%",
   backgroundColor: "#3f51b5",

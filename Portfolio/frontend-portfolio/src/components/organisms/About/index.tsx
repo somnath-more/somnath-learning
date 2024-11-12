@@ -8,14 +8,14 @@ const AboutBox = styled(Box)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  height: "100vh", // Full viewport height
+  height: "auto", // Full viewport height
   width: "100vw",
   background: "linear-gradient(135deg, #3a7bd5, #00d2ff)", // Sleek gradient background
   color: "#f4f4f9", // Light text color for better readability
   padding: "40px",
   fontFamily: "'Roboto', sans-serif",
-  overflowY: "scroll", // Enable vertical scrolling
-  overflowX: "hidden", // Disable horizontal scrolling
+  // overflowY: "scroll", // Enable vertical scrolling
+  // overflowX: "hidden", // Disable horizontal scrolling
   boxSizing: "border-box",
 });
 
@@ -68,7 +68,7 @@ const Paragraph = styled("p")({
 const StyledAvatar = styled(Avatar)({
   width: "180px",
   height: "180px",
-  margin: "20px 0",
+  margin: "10px 0",
   border: "8px solid #fff", // Thick border
   borderRadius: "50%",
   boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)", // Deep shadow for depth
@@ -110,7 +110,6 @@ const Section = styled(Box)({
 const About = () => {
   return (
     <AboutBox>
-      <Heading>About Me</Heading>
       <StyledAvatar src="mypic.jpg" alt="Your Photo" />
 
       <Section>
