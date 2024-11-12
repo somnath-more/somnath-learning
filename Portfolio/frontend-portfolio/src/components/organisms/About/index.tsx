@@ -19,19 +19,6 @@ const AboutBox = styled(Box)({
   boxSizing: "border-box",
 });
 
-// Heading styling with advanced animation
-const Heading = styled("h1")({
-  fontSize: "4rem",
-  margin: "20px 0",
-  color: "#fff", // White color for better contrast
-  textAlign: "center",
-  fontWeight: "bold",
-  animation: "fadeInUp 2s ease-out",
-  "@keyframes fadeInUp": {
-    "0%": { opacity: 0, transform: "translateY(30px)" },
-    "100%": { opacity: 1, transform: "translateY(0)" },
-  },
-});
 
 // Subheading styling with gradient text and shadow
 const SubHeading = styled("h2")({
