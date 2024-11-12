@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import CircularProgress from "@mui/joy/CircularProgress";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
 import { CustomSkillCompProps } from "../../Types";
 import { SKILL_DATA } from "../../Constants";
