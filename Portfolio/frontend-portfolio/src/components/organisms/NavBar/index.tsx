@@ -29,7 +29,7 @@ const OuterNavBar = styled(Box)({
 const LeftGrid = styled(Grid)({
   display: "flex",
   alignItems: "center",
-  gap: "20px",
+  gap: "15px",
 });
 
 interface NavItemProps {
@@ -48,6 +48,9 @@ const NavItem = styled(Typography)<NavItemProps>(({ active }) => ({
     color: "#61dafb",
     transform: "scale(1.05)",
   },
+  fontSize: "20px",
+  fontWeight: 'bold',
+  letterSpacing: '-0.02em',
 }));
 
 const DrawerBox = styled(Box)({
@@ -115,6 +118,7 @@ const NavBar = () => {
             </NavItem>
           ))}
         </LeftGrid>
+
       </Box>
 
       {/* Mobile Menu Icon */}
