@@ -106,8 +106,12 @@ const Projects = () => {
               Tools: {project.tools.join(", ")}
             </Typography>
             <Typography variant="body2" align="center">
+              <a href={project.link}>Link</a>
+            </Typography>
+            <Typography variant="body2" align="center">
               {project.details}
             </Typography>
+
           </AccordionDetailsContainer>
         </Accordion>
       ))}

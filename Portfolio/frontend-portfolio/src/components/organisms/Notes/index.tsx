@@ -76,7 +76,10 @@ const SearchTextField = styled(TextField)({
 });
 
 // Animation for smooth fade-in effect when notes load
-
+const noteStyle = {
+  backgroundColor: "linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)",
+  position: "relative",
+};
 const Notes = () => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = React.useState("");
@@ -88,8 +91,7 @@ const Notes = () => {
           <CustomButton
             size="small"
             endIcon={<AddIcon />}
-            variant="contained"
-            color="primary"
+             sx={noteStyle}
             onClick={() => navigate("/add-notes")}
           >
             Add Note

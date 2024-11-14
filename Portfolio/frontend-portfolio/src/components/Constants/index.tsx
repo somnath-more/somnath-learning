@@ -102,7 +102,30 @@ export const PROJECT_DATA = [
     details:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc id facilisis ullamcorper, felis ligula facilisis nunc, et efficitur arcu nisi et velit.",
     image: "https://media.istockphoto.com/id/1317452510/photo/bitcoin-gold-stock-photo.jpg?s=2048x2048&w=is&k=20&c=Wi7KTmz6YF8GbpGryhM6KlsF0Fwia3ffxVwkI-nmJwU=",
-  },
+  },{
+    id: 4,
+    name: "Javascript Questioner",
+    link: "https://warm-gingersnap-8f5e3c.netlify.app/",
+    githubLink: "https://github.com/somnath-more/somnath-learning",
+    tools: [
+      "Javascript",
+      "Html",
+      "CSS",
+      "Bootstrap",
+    ],
+    details:
+      "Here you can Add Question and then you execute Question by one with console output ",
+    image : 'https://images.unsplash.com/photo-1659079631665-eb95370fb173?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  },{
+    id: 5,
+    name: "CryptoCurrencyHub",
+    link: "https://minet-portfolio.codemaya.in",
+    githubLink: "https://github.com/somnath-more/somnath-learning",
+    tools: ["CSS"],
+    details:
+      "CSS is a style sheet language used for describing the presentation of a document written in HTML or XML. CSS allows you to apply styles to HTML elements.",
+      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  }
 ]
 
 

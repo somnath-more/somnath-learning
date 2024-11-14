@@ -4,7 +4,7 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import React from "react";
 import { useNavigate } from "react-router";
 import { CustomSkillCompProps } from "../../Types";
-import { SKILL_DATA } from "../../Constants";
+import { fadeIn, SKILL_DATA } from "../../Constants";
 import { keyframes } from "@emotion/react"; 
 
 
@@ -35,9 +35,13 @@ const MuiStack = styled(Stack)({
   backgroundColor: "#f5f5f5",
   borderRadius: "10px",
   transition: "all 0.3s ease",
+  transformOrigin: "center", // Center scaling origin
+  animation: `${fadeIn} 1s ease`, // Apply fade-in animation
   "&:hover": {
     backgroundColor: "#e3f2fd",
-    transform: "translateY(-5px)",
+    transform: "translateY(-5px) scale(2)",
+    backdropFilter: "blur(10px)", // Blurring the background on hover
+    boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)", // Slightly stronger shadow on hover
   },
 });
 
@@ -68,15 +72,6 @@ const CustomButton = styled(Button)({
   }
 });
 
-const fadeIn = keyframes`fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`;
 
 const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
   const navigate = useNavigate();

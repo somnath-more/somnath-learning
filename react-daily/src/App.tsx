@@ -1,6 +1,7 @@
 
 import './App.css'
 import BootstrapComp from './components/organisms/BootstrapComp'
+import CounterChakde from './components/organisms/CounterChakde'
 import DragAndDropExample from './components/organisms/DragableDropExample'
 import SyntheticEvent from './components/organisms/SyntheticEvents'
 import TailwindComp from './components/organisms/TailwindComp'
@@ -26,7 +27,8 @@ function App() {
      <BootstrapComp/> */}
      {/* <SyntheticEvent/> */}
     {/* <DragAndDropExample/> */}
-    <TodoListDragDrop/>
+    {/* <TodoListDragDrop/> */}
+    <CounterChakde/>
     </>
   )
 }
