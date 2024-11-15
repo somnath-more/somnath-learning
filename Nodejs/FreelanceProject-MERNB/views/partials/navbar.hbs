@@ -12,43 +12,62 @@
   </head>
   <body>
     <!-- Ensure the nav bar is structured correctly -->
-    <nav
-      class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3"
-      style="background: linear-gradient(90deg, #b3c6ff, #ffffff);"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="/webapp/static/images/download.png"
-            alt="Logo"
-            width="40"
-            height="40"
-            class="rounded-circle d-inline-block align-text-top"
-          />
-          Traveller Adventure
-        </a>
-        <input
-          type="search"
-          name="searchPlace"
-          class="form-control rounded-pill border px-3 py-2 w-25"
-          placeholder="Search for a place"
-        />
+   <nav
+  class="navbar navbar-expand-lg navbar-light shadow-sm py-3"
+  style="background: linear-gradient(90deg, #b3c6ff, #ffffff,green);"
+>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img
+        src="/webapp/static/images/download.png"
+        alt="Logo"
+        width="40"
+        height="40"
+        class="rounded-circle me-2"
+      />
+      <span class="fw-bold" style="color: #4b6584;">Traveller Adventure</span>
+    </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            {{#each data}}
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="{{this.url}}"
-                >{{this.label}}</a>
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {{#each data}}
+        <li class="nav-item font-weight-bold">
+          <a
+            class="nav-link px-3 py-2 rounded text-dark {{#if this.active}}active{{/if}}"
+            style="transition: background-color 0.3s ease;"
+            href="{{this.url}}"
+            >{{this.label}}</a
+          >
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-link:hover {
+    background-color: #d6e4ff;
+    color: #1a5276;
+  }
+  .nav-link.active {
+    font-weight: bold;
+    background-color: #b3c6ff;
+    color: #fff;
+  }
+</style>
 
     <!-- Bootstrap JS for navbar functionality -->
     <script

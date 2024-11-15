@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const app = express.Router();
 const Zorro = require('../models/zorro');
 const Slider = require('../models/Slider');
 const Form = require('../models/Form');
@@ -8,6 +9,10 @@ const Gallery = require('../models/Gallery');
 // Route to get all users
 // Sending a mail
 var nodemailer = require('nodemailer');
+
+//  Frontend routing 
+
+// Backend Rest Api
 router.get('/', async (req, res) => {
     // res.json({msg: 'Get all users'});
     const details = await Zorro.find()
@@ -26,6 +31,7 @@ router.get('/gallery', async (req, res) => {
     res.render('gallery', { data: details, photos: photos })
 });
 //  Service page
+// Backend Rest Api
 router.get('/service', async (req, res) => {
     // res.json({msg: 'Get all users'});
     const details = await Zorro.find()

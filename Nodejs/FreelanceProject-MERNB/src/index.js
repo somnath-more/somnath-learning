@@ -24,10 +24,15 @@ app.set('view engine', 'hbs')
 app.set('views','views'); 
 // Database Configuration
 // 
-
 app.get('/payment', (req, res) => {
-    res.render('payment'); // This will render the views/newPage.hbs file
-  });
+  res.render('payment'); // This will render the views/newPage.hbs file
+});
+app.get('/sign-in', (req, res) => {
+  res.render('signin'); // This will render the views/newPage.hbs file
+});
+app.get('/sign-up', (req, res) => {
+  res.render('signup'); // This will render the views/newPage.hbs file
+});
 
 dotenv.config()
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/website_tut')
