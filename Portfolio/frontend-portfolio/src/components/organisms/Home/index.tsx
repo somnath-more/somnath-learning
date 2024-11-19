@@ -1,11 +1,6 @@
 import styled from "@emotion/styled";
 import { IconButton, Box, Tooltip } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { SOCIAL_MEDIA_DATA } from "../../Constants";
 
 const HomeBox = styled(Box)({
