@@ -8,7 +8,7 @@ import SkillPage from './components/pages/SkillPage';
 import ProjectPage from './components/pages/ProjectPage';
 import NotesPage from './components/pages/NotesPage';
 import AddNotesPage from './components/pages/AddNotePage';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

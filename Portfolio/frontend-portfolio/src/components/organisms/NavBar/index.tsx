@@ -1,148 +1,112 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import styled from "@emotion/styled";
-import {
-  Box,
-  Grid,
-  Typography,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { NAVBARELEMENTS } from "../../Constants";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import { useNavigate } from "react-router";
 import { NavBarElementType } from "../../Types";
-
-
-const OuterNavBar = styled(Box)({
-  backgroundColor: "#282c34",
-  padding: "10px 20px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  width: "100%",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-});
-
-const LeftGrid = styled(Grid)({
-  display: "flex",
-  alignItems: "center",
-  gap: "15px",
-});
-
-interface NavItemProps {
-  active: boolean;
-}
-
-// NavItem with hover, active styling, and background color transition
-const NavItem = styled(Typography)<NavItemProps>(({ active }) => ({
-  color: active ? "red" : "#ffffff",
-  cursor: "pointer",
-  padding: "5px 15px",
-  borderRadius: "8px",
-  backgroundColor: active ? "rgba(97, 218, 251, 0.2)" : "transparent",
-  transition: "color 0.3s, background-color 0.3s, transform 0.3s",
-  "&:hover": {
-    color: "#61dafb",
-    transform: "scale(1.05)",
-  },
-  fontSize: "20px",
-  fontWeight: 'bold',
-  letterSpacing: '-0.02em',
-}));
-
-const DrawerBox = styled(Box)({
-  backgroundColor: "#282c34",
-  color: "#ffffff",
-  height: "100%",
-});
-
-const DrawerListItem = styled(ListItem)({
-  padding: "15px 20px",
-  "&:hover": {
-    backgroundColor: "#333",
-  },
-});
+import { NAVBARELEMENTS } from "../../Constants";
+import { Form } from "react-bootstrap";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleNavBarNavigation = (item: NavBarElementType) => {
     navigate(item.path);
-    setMobileOpen(false); // Close Drawer after navigation on mobile
   };
 
-  const PortFolioText = styled(Typography)({
-    color: "white",
-    fontWeight: "bold",
-  });
-
-  const drawer = (
-    <DrawerBox>
-      <List>
-        {NAVBARELEMENTS.map((navItem) => (
-          <DrawerListItem
-            key={navItem.label}
-            onClick={() => handleNavBarNavigation(navItem)}
-          >
-            <ListItemText primary={navItem.label} />
-          </DrawerListItem>
-        ))}
-      </List>
-    </DrawerBox>
-  );
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+    document.body.style.backgroundColor = darkMode ? "#ffffff" : "#121212";
+    document.body.style.color = darkMode ? "#000000" : "#ffffff";
+  };
 
   return (
-    <OuterNavBar>
-      <PortFolioText variant="h4">Somnath More</PortFolioText>
-
-      {/* Desktop Navbar */}
-      <Box sx={{ display: { xs: "none", sm: "block" } }}>
-        <LeftGrid>
-          {NAVBARELEMENTS.map((item) => (
-            <NavItem
-              key={item.label}
-              active={location.pathname === item.path}
-              onClick={() => handleNavBarNavigation(item)}
-            >
-              {item.label}
-            </NavItem>
-          ))}
-        </LeftGrid>
-      </Box>
-
-      {/* Mobile Menu Icon */}
-      <Box sx={{ display: { xs: "block", sm: "none" } }}>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          onClick={handleDrawerToggle}
+    <Navbar
+      expand="lg"
+      className={`py-3 ${darkMode ? "bg-dark" : "bg-light"}`}
+      style={{
+        width: "100%",
+        transition: "all 0.3s ease-in-out",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <Container>
+        <Navbar.Brand
+          href="#"
+          style={{
+            fontWeight: "bold",
+            fontSize: "1.5rem",
+            color: darkMode ? "#ffffff" : "#000000",
+            transition: "color 0.3s ease",
+          }}
         >
-          <MenuIcon style={{ color: "#ffffff" }} />
-        </IconButton>
-      </Box>
+          {darkMode ? "🌙 Somnath Portfolio" : "☀️ Somnath Portfolio"}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto">
+            {NAVBARELEMENTS.map((item) => (
+              <Nav.Link
+                key={item.label}
+                onClick={() => handleNavBarNavigation(item)}
+                style={{
+                  fontSize: "1rem",
+                  color: darkMode ? "#cccccc" : "#333333",
+                  marginRight: "1rem",
+                  transition: "color 0.3s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = darkMode
+                    ? "#ffffff"
+                    : "#000000")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = darkMode
+                    ? "#cccccc"
+                    : "#333333")
+                }
+              >
+                {item.label}
+              </Nav.Link>
+            ))}
+            <NavDropdown
+              title="About"
+              id="navbarScrollingDropdown"
+              style={{
+                color: darkMode ? "#cccccc" : "#333333",
+                transition: "color 0.3s ease",
+              }}
+            >
+              <NavDropdown.Item href="#action3">Education</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">About</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Work Experience</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
 
-      {/* Drawer for Mobile Navigation */}
-      <Drawer
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      >
-        {drawer}
-      </Drawer>
-    </OuterNavBar>
+          {/* Dark/Light Mode Toggle */}
+          <Form.Check
+            type="switch"
+            id="theme-switch"
+            label={darkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
+            checked={darkMode}
+            onChange={toggleTheme}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "1.2rem",
+              color: darkMode ? "#ffffff" : "#000000",
+              cursor: "pointer",
+              transition: "color 0.3s ease",
+            }}
+          />
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
+
 export default NavBar;

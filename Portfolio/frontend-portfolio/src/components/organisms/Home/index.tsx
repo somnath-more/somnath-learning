@@ -10,7 +10,7 @@ const HomeBox = styled(Box)({
   flexDirection: "column",
   width: "100vw",
   height: "90vh",
-  backgroundColor: "#282c34",
+  // backgroundColor: "#282c34",
   color: "#61dafb",
   textAlign: "center",
   fontFamily: "'Roboto', sans-serif",
@@ -23,7 +23,7 @@ const Heading = styled("h1")({
   fontSize: "3rem",
   margin: "0",
   fontWeight: "bold",
-  animation: "fadeIn 5s ease-in-out",
+  animation: "fadeIn 2s ease-in-out",
   "@keyframes fadeIn": {
     from: { opacity: 0 },
     to: { opacity: 1 },
@@ -35,7 +35,7 @@ const Text = styled("h2")({
   margin: "10px 0",
   fontWeight: "300",
   color: "#f0f0f0",
-  animation: "fadeIn 2s ease-in-out",
+  animation: "fadeIn 0.5s ease-in-out",
   "@keyframes fadeIn": {
     from: { opacity: 0 },
     to: { opacity: 1 },

@@ -8,13 +8,12 @@ interface HomeTemplateProps {
 }
 const HeaderBox = styled(Box)({
   display: "flex",
-  background: "lightblue",
+  widt: '100vw'
 });
 const MainBox = styled(Box)({
   display: "flex",
   height: "100%",
   width: "100%",
-  backgroundColor: "#f0f2f5"
 });
 const HomeTemplate = ({ NavBar, MainComponent }: HomeTemplateProps) => {
   return (
