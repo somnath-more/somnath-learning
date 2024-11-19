@@ -20,6 +20,13 @@ public class TodoController {
     public List<Todo> getAllTodos(){
         return todoService.getAllTodos();
     }
+
+//     filtering request based on page and size
+    @GetMapping("/filter")
+    public List<Todo> getFilteredTodos(){
+        Pageable
+        return
+    }
     @GetMapping("/{id}")
     public Optional<Todo> getTodosById(@PathVariable  Long id){
         return todoService.getTodoById(id);

@@ -1,5 +1,9 @@
 import { NavBarElementType, SkillComponent } from "../Types";
-
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
 // Skill Data
 export const SKILL_DATA: SkillComponent[] = [
     { id: 1, name: "JavaScript", proficiency: 80, skillType: "Database" },
@@ -137,3 +141,35 @@ export const NAVBARELEMENTS: NavBarElementType[] = [
   { label: "Projects", path: "/projects" },
   { label: "Notes", path: "/notes" },
 ];
+
+export const SOCIAL_MEDIA_DATA = [{
+  name: "LinkedIn",
+  icon: <LinkedInIcon />,
+  link: "https://www.linkedin.com/in/somnathmore83",
+  },{
+    name: "Instagram",
+    icon: <InstagramIcon />,
+    link: "https://www.instagram.com/somnathmore83",
+  },{
+    name: "Facebook",
+    icon: <FacebookIcon />,
+    link: "https://www.facebook.com/somnathmore83",
+  },{
+    name: "Twitter",
+    icon: <TwitterIcon />,
+    link: "https://www.twitter.com/somnathmore83",
+  },{
+    name: "Github",
+    icon: <GitHubIcon />,
+    link: "https://www.github.com/somnath-more",
+  }
+
+]
+
+export var SLICK_CAROUSAL_DATA = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};

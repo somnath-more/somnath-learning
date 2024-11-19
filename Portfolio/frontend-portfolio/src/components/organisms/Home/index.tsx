@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import { IconButton, Box, Tooltip } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { SLICK_CAROUSAL_DATA, SOCIAL_MEDIA_DATA } from "../../Constants";
+import Slider from "react-slick";
 
 const HomeBox = styled(Box)({
   display: "flex",
@@ -13,7 +10,7 @@ const HomeBox = styled(Box)({
   alignItems: "center",
   flexDirection: "column",
   width: "100vw",
-  height: "91.5vh",
+  height: "auto",
   backgroundColor: "#282c34",
   color: "#61dafb",
   textAlign: "center",
@@ -83,48 +80,38 @@ const Home = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, [texts.length]);
-const SocialMediaData = [{
-  name: "LinkedIn",
-  icon: <LinkedInIcon />,
-  link: "https://www.linkedin.com/in/somnathmore83",
-  },{
-    name: "Instagram",
-    icon: <InstagramIcon />,
-    link: "https://www.instagram.com/somnathmore83",
-  },{
-    name: "Facebook",
-    icon: <FacebookIcon />,
-    link: "https://www.facebook.com/somnathmore83",
-  },{
-    name: "Twitter",
-    icon: <TwitterIcon />,
-    link: "https://www.twitter.com/somnathmore83",
-  },{
-    name: "Github",
-    icon: <GitHubIcon />,
-    link: "https://www.github.com/somnath-more",
-  }
-
-]
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
-    <HomeBox>
-      <Heading>Welcome to My Portfolio</Heading>
-      <Text>{texts[currentTextIndex]}</Text>
 
-      <Box sx={{ display: "flex", gap: 2, mt: "30px" }}>
-       {
-         SocialMediaData.map((data) => (
-           <a href={data.link} target="_blank" rel="noopener noreferrer">
-             <StyledIconButton bgcolor="#0077B5">
-              <Tooltip title={data.name} arrow>
-                {data.icon}
-              </Tooltip>
-             </StyledIconButton>
-           </a>
-         ))
-       }
-   </Box>
-    </HomeBox>
+  <>
+   <Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider>
+    </>
+    // </HomeBox>
   );
 };
 

@@ -12,7 +12,11 @@ import TodoListDragDrop from './components/organisms/TodoListDragDrop'
 // import Reducer from './components/hooks/UseReducer'
 // import CustomHook from './components/organisms/CustomHook';
 // import TodoList from './components/organisms/TodoList'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SimpleSlider from './components/organisms/Slider/SimpleSlider'
+import StepperComp from './components/organisms/Stepper'
+import FileManaager from './components/organisms/FileManager'
 function App() {
 
   return (
@@ -28,7 +32,10 @@ function App() {
      {/* <SyntheticEvent/> */}
     {/* <DragAndDropExample/> */}
     {/* <TodoListDragDrop/> */}
-    <CounterChakde/>
+    {/* <CounterChakde/> */}
+    {/* <SimpleSlider/> */}
+    {/* <StepperComp/> */}
+      <FileManaager/>
     </>
   )
 }
