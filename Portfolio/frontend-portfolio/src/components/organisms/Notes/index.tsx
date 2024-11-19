@@ -9,7 +9,7 @@ import { fadeIn, NOTES_DATA } from "../../Constants";
 
 const NoteStackBox = styled(Stack)({
   width: "100%",
-  backgroundColor: "#f7f7f7", // Light background color
+  // backgroundColor: "#f7f7f7", // Light background color
   borderRadius: "10px",
   padding: "20px",
   margin: "20px 0",
@@ -23,7 +23,7 @@ const ButtonBox = styled(Box)({
 });
 
 const NoteBox = styled(Box)({
-  backgroundColor: "#fff",
+  // backgroundColor: "#fff",
   borderRadius: "8px",
   padding: "15px",
   marginBottom: "15px",

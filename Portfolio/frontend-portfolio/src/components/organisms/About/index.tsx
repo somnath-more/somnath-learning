@@ -10,7 +10,7 @@ const AboutBox = styled(Box)({
   alignItems: "center",
   height: "auto", // Full viewport height
   width: "100vw",
-  background: "linear-gradient(135deg, #3a7bd5, #00d2ff)", // Sleek gradient background
+  // background: "linear-gradient(135deg, #3a7bd5, #00d2ff)", // Sleek gradient background
   color: "#f4f4f9", // Light text color for better readability
   padding: "40px",
   fontFamily: "'Roboto', sans-serif",

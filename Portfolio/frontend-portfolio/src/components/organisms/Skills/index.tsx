@@ -32,7 +32,7 @@ const MuiStack = styled(Stack)({
   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
   margin: "10px",
   padding: "20px",
-  backgroundColor: "#f5f5f5",
+  // backgroundColor: "#f5f5f5",
   borderRadius: "10px",
   transition: "all 0.3s ease",
   transformOrigin: "center", // Center scaling origin
@@ -58,7 +58,7 @@ const Container = styled(Box)({
   paddingBottom: "20px",
   marginTop: "20px",
   width: "100%",
-  backgroundColor: "#ebeded"
+  // backgroundColor: "#ebeded"
 });
 
 const CustomButton = styled(Button)({
