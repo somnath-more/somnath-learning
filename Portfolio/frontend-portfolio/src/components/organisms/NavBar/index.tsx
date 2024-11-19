@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import {
   Box,
@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { NAVBARELEMENTS } from "../../Constants";
 import { NavBarElementType } from "../../Types";
 
-// Navbar container styling
+
 const OuterNavBar = styled(Box)({
   backgroundColor: "#282c34",
   padding: "10px 20px",
@@ -68,15 +68,14 @@ const DrawerListItem = styled(ListItem)({
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Home");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const handleNavBarNavigation = (item: NavBarElementType) => {
-    setActiveTab(item.label);
     navigate(item.path);
     setMobileOpen(false); // Close Drawer after navigation on mobile
   };
@@ -111,14 +110,13 @@ const NavBar = () => {
           {NAVBARELEMENTS.map((item) => (
             <NavItem
               key={item.label}
-              active={activeTab === item.label}
+              active={location.pathname === item.path}
               onClick={() => handleNavBarNavigation(item)}
             >
               {item.label}
             </NavItem>
           ))}
         </LeftGrid>
-
       </Box>
 
       {/* Mobile Menu Icon */}
@@ -147,5 +145,4 @@ const NavBar = () => {
     </OuterNavBar>
   );
 };
-
 export default NavBar;
