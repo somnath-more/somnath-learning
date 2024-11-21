@@ -101,7 +101,7 @@ const About = () => {
       <Section>
         <SubHeading>Personal Details</SubHeading>
         <Paragraph>
-          I am a Full Stack Developer who completed a B.Tech in 2023. My hobbies
+          I am a Full Stack Developer who completed a B.Tech in Computer Science. My hobbies
           include playing cricket, volleyball, and reading books.
         </Paragraph>
       </Section>

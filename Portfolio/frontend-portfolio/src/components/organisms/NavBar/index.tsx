@@ -9,7 +9,15 @@ import { Form } from "react-bootstrap";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useTheme } from "../../../contexts";
 import NavDropdown from "../../molecules/NavDropdown";
-
+import styled from "@emotion/styled";
+const MuiNavbar = styled(Navbar)({
+  width: "100%",
+  transition: "all 0.3s ease-in-out",
+  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+  '&:hover':{
+    backgroundColor:'green'
+  }
+})
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -21,14 +29,9 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar
+    <MuiNavbar
       expand="lg"
       className={`py-3 ${isDarkMode ? "bg-dark" : "bg-light"}`}
-      style={{
-        width: "100%",
-        transition: "all 0.3s ease-in-out",
-        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-      }}
     >
       <Container>
         <Navbar.Brand
@@ -93,7 +96,7 @@ const NavBar = () => {
           />
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </MuiNavbar>
   );
 };
 

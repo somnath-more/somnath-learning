@@ -72,7 +72,10 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
         break;
     }
   };
+const MuiCircularProgress = styled(CircularProgress)({
+ 
 
+})
   return (
     <SkillBox>
       {skillList.map((skill) => (
@@ -83,9 +86,9 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
           style={{ animation: `${fadeIn} 1s ease` }}
         >
           <Typography variant="h6">{skill.name}</Typography>
-          <CircularProgress size="lg" determinate value={skill.proficiency}>
+          <MuiCircularProgress  size="lg" determinate value={skill.proficiency}>
             <Typography variant="body2">{skill.proficiency}%</Typography>
-          </CircularProgress>
+          </MuiCircularProgress>
           <ButtonBox>
             <button
               onClick={() => handleButtonClick("Notes")}
