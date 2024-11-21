@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import React from "react";
+import { useTheme } from "../../../contexts";
 
 interface HomeTemplateProps {
   NavBar: React.ReactNode;
@@ -8,19 +9,19 @@ interface HomeTemplateProps {
 }
 const HeaderBox = styled(Box)({
   display: "flex",
-  background: "lightblue",
+  widt: '100vw'
 });
 const MainBox = styled(Box)({
   display: "flex",
   height: "100%",
   width: "100%",
-  backgroundColor: "#f0f2f5"
 });
 const HomeTemplate = ({ NavBar, MainComponent }: HomeTemplateProps) => {
+  const {theme}=useTheme();
   return (
     <div>
       <HeaderBox>{NavBar ?? "NavBar"}</HeaderBox>
-      <MainBox>{MainComponent ?? "MainComponent"}</MainBox>
+      <MainBox className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>{MainComponent ?? "MainComponent"}</MainBox>
     </div>
   );
 };

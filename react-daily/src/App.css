@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+.each-stepper{
+  border-radius: 50%;
+   height: 'auto';
+  width: 40px;
+  color: red;
+  background-color: black;
+}
+.line{
+  /*  horizontal line */
+  height: 3px;
+  background-color: black;
+  margin: 10px 0;
+}

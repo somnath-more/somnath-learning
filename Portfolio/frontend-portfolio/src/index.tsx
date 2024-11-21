@@ -4,15 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ThemeProvider from './contexts';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
  
   <React.StrictMode>
+    <ThemeProvider>
     <BrowserRouter>
     <App />
     </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 
 );

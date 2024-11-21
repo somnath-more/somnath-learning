@@ -1,128 +1,102 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { useNavigate } from "react-router";
+import { NavBarElementType } from "../../Types";
+import { NAVBARELEMENTS } from "../../Constants";
+import { Form } from "react-bootstrap";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from "../../../contexts";
+import NavDropdown from "../../molecules/NavDropdown";
 import styled from "@emotion/styled";
-import {
-  Box,
-  Grid,
-  Typography,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-
-// Navbar container
-const OuterNavBar = styled(Box)({
-  backgroundColor: "#282c34", // Dark background for a modern look
-  padding: "10px 20px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
+const MuiNavbar = styled(Navbar)({
   width: "100%",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
-});
-
-const LeftGrid = styled(Grid)({
-  display: "flex",
-  alignItems: "center",
-  gap: "20px",
-});
-
-// Navbar item styling for desktop
-const NavItem = styled(Typography)({
-  color: "#ffffff",
-  cursor: "pointer",
-  transition: "color 0.3s",
-  "&:hover": {
-    color: "#61dafb", // Highlight color on hover
-  },
-});
-
-// Drawer box styling for mobile
-const DrawerBox = styled(Box)({
-  backgroundColor: "#282c34", // Same background as navbar
-  color: "#ffffff", // Text color
-  height: "100%",
-});
-
-// Drawer list item styling
-const DrawerListItem = styled(ListItem)({
-  padding: "15px 20px",
-  "&:hover": {
-    backgroundColor: "#333", // Darker background on hover
-  },
-});
-
-// Navbar items configuration
-const NavBarElement = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
-  { label: "Visitor", path: "/visitor" },
-];
+  transition: "all 0.3s ease-in-out",
+  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+  '&:hover':{
+    backgroundColor:'green'
+  }
+})
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from the context
+  const isDarkMode = theme === "dark"; // Determine if the current theme is dark
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleNavBarNavigation = (item: NavBarElementType) => {
+    navigate(item.path);
   };
 
-  const PortFolioText = styled(Typography)({
-    color: "white",
-    fontWeight: "bold",
-  });
-  const drawer = (
-    <DrawerBox>
-      <List>
-        {NavBarElement.map((navabar) => (
-          <DrawerListItem
-            key={navabar.label}
-            onClick={() => navigate(navabar.path)}
-          >
-            <ListItemText primary={navabar.label} />
-          </DrawerListItem>
-        ))}
-      </List>
-    </DrawerBox>
-  );
-
   return (
-    <OuterNavBar>
-      <PortFolioText variant="h4">Somnath More</PortFolioText>
-      <Box sx={{ display: { xs: "none", sm: "block" } }}>
-        <LeftGrid>
-          {NavBarElement.map((item) => (
-            <NavItem key={item.label} onClick={() => navigate(item.path)}>
-              {item.label}
-            </NavItem>
-          ))}
-        </LeftGrid>
-      </Box>
-      <Box sx={{ display: { xs: "block", sm: "none" } }}>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          onClick={handleDrawerToggle}
+    <MuiNavbar
+      expand="lg"
+      className={`py-3 ${isDarkMode ? "bg-dark" : "bg-light"}`}
+    >
+      <Container>
+        <Navbar.Brand
+          href="#"
+          style={{
+            fontWeight: "bold",
+            fontSize: "1.5rem",
+            color: isDarkMode ? "#ffffff" : "#000000",
+            transition: "color 0.3s ease",
+          }}
         >
-          <MenuIcon style={{ color: "#ffffff" }} />
-        </IconButton>
-      </Box>
-      <Drawer
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      >
-        {drawer}
-      </Drawer>
-    </OuterNavBar>
+          {isDarkMode ? "🌙 Somnath Portfolio" : "☀️ Somnath Portfolio"}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto">
+            {NAVBARELEMENTS.map((item) => (
+              <Nav.Link
+                key={item.label}
+                onClick={() => handleNavBarNavigation(item)}
+                style={{
+                  fontSize: "1rem",
+                  color: isDarkMode ? "#cccccc" : "#333333",
+                  marginRight: "1rem",
+                  transition: "color 0.3s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = isDarkMode
+                    ? "#ffffff"
+                    : "#000000")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = isDarkMode
+                    ? "#cccccc"
+                    : "#333333")
+                }
+              >
+                {item.label}
+              </Nav.Link>
+            ))}
+            {/* Added Molecules */}
+            <NavDropdown/>
+         
+          </Nav>
+
+          {/* Dark/Light Mode Toggle */}
+          <Form.Check
+            type="switch"
+            id="theme-switch"
+            label={isDarkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
+            checked={isDarkMode}
+            onChange={toggleTheme}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "1.2rem",
+              color: isDarkMode ? "#ffffff" : "#000000",
+              cursor: "pointer",
+              transition: "color 0.3s ease",
+            }}
+          />
+        </Navbar.Collapse>
+      </Container>
+    </MuiNavbar>
   );
 };
 
