@@ -5,14 +5,16 @@ import TextField from "../../atoms/TextField";
 import { useNavigate } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import { fadeIn, NOTES_DATA } from "../../Constants";
+import { useTheme } from "../../../contexts";
 //  Defining the constant Data for notes
 
 const NoteStackBox = styled(Stack)({
   width: "100%",
   // backgroundColor: "#f7f7f7", // Light background color
-  borderRadius: "10px",
+  // borderRadius: "10px",
   padding: "20px",
-  margin: "20px 0",
+  height: '90vh',
+  // margin: "20px 0",
   boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)", // Shadow for the container
 });
 
@@ -31,26 +33,24 @@ const NoteBox = styled(Box)({
   transition: "transform 0.3s ease, background-color 0.3s ease",
   "&:hover": {
     transform: "scale(1.02)", // Slightly enlarge on hover
-    backgroundColor: "#e3f2fd", // Light blue background on hover
+    // backgroundColor: "#e3f2fd", // Light blue background on hover
   },
 });
 
 const Title = styled(Typography)({
   fontSize: "1.5rem",
   fontWeight: "bold",
-  color: "#333",
+  color: "inherit",
   marginBottom: "10px",
 });
 
 const NoteContent = styled(Typography)({
-  color: "#555",
   fontSize: "1rem",
   lineHeight: "1.6",
 });
 
 const NoteType = styled(Typography)({
   fontSize: "0.9rem",
-  color: "#888",
   fontStyle: "italic",
 });
 
@@ -58,8 +58,6 @@ const CustomButton = styled(Button)({
   display: 'flex',
   padding: "10px 20px",
   width: "20%",
-  backgroundColor: "#3f51b5",
-  color: "#fff",
   "&:hover": {
     backgroundColor: "#1a237e",
     color: "#fff",
@@ -69,10 +67,26 @@ const CustomButton = styled(Button)({
 const SearchTextField = styled(TextField)({
   width: "40%",
   "& .MuiInputBase-root": {
-    backgroundColor: "#fff",
+    backgroundColor: "inherit",
+    color: 'inherit',
     borderRadius: "5px",
     // padding: '10px',
   },
+  "& .MuiInputLabel-root": {
+    color: "inherit",
+  },
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "8px",
+    "& fieldset": {
+      borderColor: "#ccc",
+    },
+    "&:hover fieldset": {
+      borderColor: "#888",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#3f51b5",
+    }
+  }
 });
 
 // Animation for smooth fade-in effect when notes load
@@ -82,11 +96,12 @@ const noteStyle = {
 };
 const Notes = () => {
   const navigate = useNavigate();
+  const {theme}=useTheme();
   const [searchValue, setSearchValue] = React.useState("");
   return (
     <>
       <style>{fadeIn}</style>
-      <NoteStackBox>
+      <NoteStackBox className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
         <ButtonBox>
           <CustomButton
             size="small"

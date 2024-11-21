@@ -144,23 +144,23 @@ export const NAVBARELEMENTS: NavBarElementType[] = [
 
 export const SOCIAL_MEDIA_DATA = [{
   name: "LinkedIn",
-  icon: <LinkedInIcon />,
+  icon: "../images/linkedin.png",
   link: "https://www.linkedin.com/in/somnathmore83",
   },{
     name: "Instagram",
-    icon: <InstagramIcon />,
+    icon: "../images/instagram.png",
     link: "https://www.instagram.com/somnathmore83",
   },{
     name: "Facebook",
-    icon: <FacebookIcon />,
+    icon: "../images/facebook.png",
     link: "https://www.facebook.com/somnathmore83",
   },{
     name: "Twitter",
-    icon: <TwitterIcon />,
+    icon: "../images/twitter.png",
     link: "https://www.twitter.com/somnathmore83",
   },{
     name: "Github",
-    icon: <GitHubIcon />,
+    icon: "../images/github.png",
     link: "https://www.github.com/somnath-more",
   }
 

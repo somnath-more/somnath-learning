@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TextField from "../../atoms/TextField";
 import { Stack, Typography, Button as MuiButton, Grid } from "@mui/material";
 import emailjs from "emailjs-com";
+import { useTheme } from "../../../contexts";
 
 // Styled container for the contact form
 const ContactContainer = styled(Grid)({
@@ -10,14 +11,13 @@ const ContactContainer = styled(Grid)({
   margin: "0 auto",
   padding: "40px",
   borderRadius: "12px",
-  // boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
+  boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
 });
 
 const Heading = styled(Typography)({
   fontSize: "2.2rem",
   fontWeight: "700",
   textAlign: "center",
-  color: "#333",
   marginBottom: "20px",
 });
 
@@ -25,10 +25,10 @@ const FormField = styled(TextField)({
   width: "100%",
   borderRadius: "50px",
   "& .MuiInputLabel-root": {
-    color: "#666",
+    color: "inherit",
   },
   "& .MuiInputBase-input": {
-    color: "#333",
+    color: "inherit",
   },
   "& .MuiOutlinedInput-root": {
     borderRadius: "8px",
@@ -49,8 +49,8 @@ const SubmitButton = styled(MuiButton)({
   borderRadius: "50px",
   fontSize: "1rem",
   fontWeight: "600",
-  color: '#fff',
   transition: "background-color 0.3s, transform 0.3s",
+  color: 'inherit',
   "&:hover": {
     backgroundColor: "#2e7d32",
     transform: "scale(1.05)",
@@ -72,7 +72,7 @@ const Contact = () => {
     phoneNumber: "",
     message: "",
   });
-
+ const {theme}=useTheme();
   const handleChange =
     (field: keyof ContactFormType) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,7 +109,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactContainer container spacing={4}>
+    <ContactContainer container spacing={4} className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       <Grid item xs={12}>
         <Heading>Have Some Questions for Me?</Heading>
       </Grid>

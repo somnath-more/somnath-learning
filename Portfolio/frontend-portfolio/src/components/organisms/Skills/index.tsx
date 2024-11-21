@@ -5,14 +5,11 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { CustomSkillCompProps } from "../../Types";
 import { fadeIn, SKILL_DATA } from "../../Constants";
-
-
-
+import { useTheme } from "../../../contexts";
 
 // Styled Components
 const SkillBox = styled(Box)({
   display: "flex",
-  
   flexWrap: "wrap",
   gap: "10px",
   marginTop: "20px",
@@ -38,8 +35,7 @@ const MuiStack = styled(Stack)({
   transformOrigin: "center", // Center scaling origin
   animation: `${fadeIn} 1s ease`, // Apply fade-in animation
   "&:hover": {
-    backgroundColor: "#e3f2fd",
-    transform: "translateY(-5px) scale(2)",
+    transform: "translateY(-5px)",
     backdropFilter: "blur(10px)", // Blurring the background on hover
     boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)", // Slightly stronger shadow on hover
   },
@@ -53,23 +49,11 @@ const Title = styled(Typography)({
 
 const Container = styled(Box)({
   // maxHeight: "90vh", // makes the container scrollable
-  height: 'auto',
+  height: "auto",
   overflowY: "auto",
   paddingBottom: "20px",
-  marginTop: "20px",
   width: "100%",
   // backgroundColor: "#ebeded"
-});
-
-const CustomButton = styled(Button)({
-  padding: "10px 20px",
-  borderRadius: "5px",
-  backgroundColor: "#3f51b5",
-  color: "#fff",
-  '&:hover':{
-    backgroundColor: "green",
-    color: "#fff",
-  }
 });
 
 
@@ -78,11 +62,11 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
   const handleButtonClick = (name: string) => {
     alert(`View projects and notes for ${name}`);
     switch (name) {
-      case 'Notes':
-        navigate('/notes')
+      case "Notes":
+        navigate("/notes");
         break;
-      case 'Projects':
-        navigate('/projects')
+      case "Projects":
+        navigate("/projects");
         break;
       default:
         break;
@@ -91,29 +75,30 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
 
   return (
     <SkillBox>
-     
       {skillList.map((skill) => (
-        <MuiStack key={skill.id} m={1} gap={2} style={{ animation: `${fadeIn} 1s ease` }}>
+        <MuiStack
+          key={skill.id}
+          m={1}
+          gap={2}
+          style={{ animation: `${fadeIn} 1s ease` }}
+        >
           <Typography variant="h6">{skill.name}</Typography>
           <CircularProgress size="lg" determinate value={skill.proficiency}>
             <Typography variant="body2">{skill.proficiency}%</Typography>
           </CircularProgress>
           <ButtonBox>
-            <CustomButton
-              size="small"
-              variant="outlined"
-              color="success"
+            <button
               onClick={() => handleButtonClick("Notes")}
+              className="button-86"
             >
               {skill.name} Projects
-            </CustomButton>
-            <CustomButton
-              size="small"
-              color="success"
+            </button>
+            <button
               onClick={() => handleButtonClick("Projects")}
+              className="button-86"
             >
-               View Notes
-            </CustomButton>
+              View Notes
+            </button>
           </ButtonBox>
         </MuiStack>
       ))}
@@ -123,20 +108,30 @@ const CustomSkillComp: React.FC<CustomSkillCompProps> = ({ skillList }) => {
 
 // Main Component
 const Skills = () => {
+  const { theme } = useTheme();
   return (
-
-    <Container>
+    <Container
+      className={theme === "dark" ? "text-light bg-dark" : "text-dark bg-light"}
+    >
       <Title>Frontend</Title>
-      <CustomSkillComp skillList={SKILL_DATA.filter((value) => value.skillType === "Frontend")} />
+      <CustomSkillComp
+        skillList={SKILL_DATA.filter((value) => value.skillType === "Frontend")}
+      />
 
       <Title>Backend</Title>
-      <CustomSkillComp skillList={SKILL_DATA.filter((value) => value.skillType === "Backend")} />
+      <CustomSkillComp
+        skillList={SKILL_DATA.filter((value) => value.skillType === "Backend")}
+      />
 
       <Title>Devops</Title>
-      <CustomSkillComp skillList={SKILL_DATA.filter((value) => value.skillType === "Devops")} />
+      <CustomSkillComp
+        skillList={SKILL_DATA.filter((value) => value.skillType === "Devops")}
+      />
 
       <Title>Database</Title>
-      <CustomSkillComp skillList={SKILL_DATA.filter((value) => value.skillType === "Database")} />
+      <CustomSkillComp
+        skillList={SKILL_DATA.filter((value) => value.skillType === "Database")}
+      />
 
       <Title>Others</Title>
       <CustomSkillComp

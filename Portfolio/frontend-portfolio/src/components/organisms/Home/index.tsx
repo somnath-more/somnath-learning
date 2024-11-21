@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { IconButton, Box, Tooltip } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { SOCIAL_MEDIA_DATA } from "../../Constants";
+import { useTheme } from "../../../contexts";
 
 const HomeBox = styled(Box)({
   display: "flex",
@@ -10,7 +11,6 @@ const HomeBox = styled(Box)({
   flexDirection: "column",
   width: "100vw",
   height: "90vh",
-  // backgroundColor: "#282c34",
   color: "#61dafb",
   textAlign: "center",
   fontFamily: "'Roboto', sans-serif",
@@ -34,7 +34,7 @@ const Text = styled("h2")({
   fontSize: "2rem",
   margin: "10px 0",
   fontWeight: "300",
-  color: "#f0f0f0",
+  color: "grey",
   animation: "fadeIn 0.5s ease-in-out",
   "@keyframes fadeIn": {
     from: { opacity: 0 },
@@ -44,6 +44,7 @@ const Text = styled("h2")({
 
 const StyledIconButton = styled(IconButton)(({ theme, bgcolor }: any) => ({
   color: "#fff",
+  display: 'flex',
   backgroundColor: bgcolor,
   margin: "10px",
   "&:hover": {
@@ -51,12 +52,12 @@ const StyledIconButton = styled(IconButton)(({ theme, bgcolor }: any) => ({
     opacity: 0.8,
   },
   transition: "all 0.3s ease-in-out",
-  width: "60px",
-  height: "60px",
 }));
 
 const Home = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const {theme}=useTheme();
+  console.log(theme)
   const texts = [
     "I am a Software Engineer",
     "I am a DevOps Engineer",
@@ -72,16 +73,16 @@ const Home = () => {
   }, [texts.length]);
 
   return (
-    <HomeBox>
+    <HomeBox className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       <Heading>Welcome to My Portfolio</Heading>
       <Text>{texts[currentTextIndex]}</Text>
-      <Box sx={{ display: "flex", gap: 2, mt: "30px" }}>
+      <Box sx={{ display: "flex", gap: 2, mt: "30px" ,flexWrap: 'wrap'}}>
         {
           SOCIAL_MEDIA_DATA.map((data) => (
             <a href={data.link} target="_blank" rel="noopener noreferrer">
-              <StyledIconButton bgcolor="#0077B5">
+              <StyledIconButton >
                 <Tooltip title={data.name} arrow>
-                 {data.icon}
+                <img src={data.icon} height={'24px'} width={'24px'} alt={data.name} />
                 </Tooltip>
               </StyledIconButton>
             </a>

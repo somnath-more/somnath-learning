@@ -10,11 +10,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import styled from "@emotion/styled";
 import { PROJECT_DATA } from "../../Constants";
+import { useTheme } from "../../../contexts";
 
 // Styling components
 const AccordionSummaryBox = styled(AccordionSummary)({
   display: "flex",
   width: "100%",
+
   background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(111,46,155,1) 44%, rgba(0,212,255,1) 100%)",
   color: "#ffffff",
   alignItems: "center",
@@ -26,7 +28,7 @@ const AccordionSummaryBox = styled(AccordionSummary)({
 const IconContainer = styled(Box)({
   display: "flex",
   gap: "15px",
-  "& a": {
+  "&a": {
     color: "#ffffff",
     "&:hover": {
       color: "#61dafb",
@@ -59,16 +61,17 @@ const ProjectImage = styled("img")({
 
 const ProjectBox = styled(Box)({
   width: "100%",
-  backgroundColor: "transparent",
-  borderRadius: "8px",
+  backgroundColor: "pink",
   padding: "20px",
   display: "flex",
   flexDirection: "column",
   gap: "15px",
+  height: "90vh",
 });
 
 const Projects = () => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const {theme} = useTheme();
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -76,9 +79,10 @@ const Projects = () => {
     };
 
   return (
-    <ProjectBox>
+    <ProjectBox className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       {PROJECT_DATA.map((project) => (
         <Accordion
+          style={{borderRadius:'50px'}}
           key={project.id}
           expanded={expanded === `panel${project.id}`}
           onChange={handleChange(`panel${project.id}`)}

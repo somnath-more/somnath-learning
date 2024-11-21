@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import { useTheme } from "../../../contexts";
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f4f4f9;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -15,7 +15,6 @@ const FormContainer = styled.div`
 `;
 
 const Heading = styled.h1`
-  color: #333;
   font-size: 2rem;
   margin-bottom: 1rem;
 `;
@@ -28,7 +27,6 @@ const StyledForm = styled.form`
 
 const Label = styled.label`
   font-size: 1rem;
-  color: #555;
   margin: 0.5rem 0;
 `;
 
@@ -90,13 +88,14 @@ const SubmitButton = styled(Button)`
 
 const AddNote = () => {
   const [noteType, setNoteType] = useState("");
+  const {theme}=useTheme();
 
   const handleTypeChange = (e:any) => {
     setNoteType(e.target.value);
   };
 
   return (
-    <FormContainer>
+    <FormContainer className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       <Heading>Add Note</Heading>
       <StyledForm>
         <Label htmlFor="title">Title:</Label>

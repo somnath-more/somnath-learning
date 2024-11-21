@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import React from "react";
 import Avatar from "@mui/material/Avatar";
+import { useTheme } from "../../../contexts";
 
 // Container for the About page
 const AboutBox = styled(Box)({
@@ -24,7 +25,6 @@ const AboutBox = styled(Box)({
 const SubHeading = styled("h2")({
   fontSize: "2.5rem",
   margin: "15px 0",
-  color: "transparent",
   background: "linear-gradient(45deg, #ff6f61, #d73682)", // Gradient text
   backgroundClip: "text",
   textAlign: "center",
@@ -42,12 +42,11 @@ const Paragraph = styled("p")({
   margin: "15px 0",
   lineHeight: "1.7",
   textAlign: "center",
-  maxWidth: "800px", // Limit paragraph width
-  color: "#eee", // Light color for readability
+  maxWidth: "800px", // Limit paragraph widt
   transition: "color 0.9s ease-in-out, transform 0.9s ease-in-out",
   "&:hover": {
     color: "#d1d1d1", // Lighten color on hover
-    transform: "translateY(-3px)", // Slight lift on hover
+    transform: "translateY(-10px)", // Slight lift on hover
   },
 });
 
@@ -62,12 +61,12 @@ const StyledAvatar = styled(Avatar)({
   animation: "bounceIn 1.5s ease-in-out",
   "@keyframes bounceIn": {
     "0%": {
-      transform: "scale(0.5)",
-      opacity: 0,
+      transform: "scale(1)",
+      // opacity: 0,
     },
     "60%": {
-      transform: "scale(1.1)",
-      opacity: 1,
+      transform: "scale(0.2)",
+      // opacity: 1,
     },
     "100%": {
       transform: "scale(1)",
@@ -84,19 +83,19 @@ const Section = styled(Box)({
   alignItems: "center",
   textAlign: "center",
   borderRadius: "15px",
-  backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background for sections
+  boxShadow: '4px 4px 6px gray',
   border: "1px solid rgba(255, 255, 255, 0.4)", // Subtle border
   marginBottom: "30px", // Space between sections
   transition: "background-color 0.3s ease-in-out, transform 0.3s ease-in-out",
   "&:hover": {
-    backgroundColor: "rgba(0, 0, 0, 0.7)", // Darker on hover
-    transform: "translateY(-5px)", // Slight lift on hover
+    transform: "translateY(-10px)", // Slight lift on hover
   },
 });
 
 const About = () => {
+  const {theme}=useTheme();
   return (
-    <AboutBox>
+    <AboutBox className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       <StyledAvatar src="mypic.jpg" alt="Your Photo" />
 
       <Section>
