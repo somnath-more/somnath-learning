@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import CircularProgress from "@mui/joy/CircularProgress";
 import React from "react";
 import { useNavigate } from "react-router";

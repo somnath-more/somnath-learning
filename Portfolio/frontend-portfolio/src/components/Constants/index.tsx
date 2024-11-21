@@ -1,9 +1,5 @@
 import { NavBarElementType, SkillComponent } from "../Types";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
+
 // Skill Data
 export const SKILL_DATA: SkillComponent[] = [
     { id: 1, name: "JavaScript", proficiency: 80, skillType: "Database" },

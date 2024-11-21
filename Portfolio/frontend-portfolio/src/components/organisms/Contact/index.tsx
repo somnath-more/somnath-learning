@@ -107,7 +107,7 @@ const Contact = () => {
         alert("Failed to send email!");
       });
   };
-
+  const imageStyle = { width: "100%", borderRadius: "10px" }
   return (
     <ContactContainer container spacing={4} className={theme === 'dark'? 'text-light bg-dark':'text-dark bg-light'}>
       <Grid item xs={12}>
@@ -117,7 +117,7 @@ const Contact = () => {
       {/* Left Side - Image Section */}
       <Grid item xs={12} md={6}>
         <Stack alignItems="center">
-          <img src="image.png" alt="Contact" style={{ width: "100%", borderRadius: "10px" }} />
+          <img src="image.png" alt="Contact" style={imageStyle} />
         </Stack>
       </Grid>
 
