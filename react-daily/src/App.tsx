@@ -1,6 +1,7 @@
 
 import './App.css'
 import A from './components/hooks/UseContext/A'
+import Rerender from './components/organisms/Rerender/Rerender'
 // import UseMemo from './components/hooks/UseMemo'
 // import Reducer from './components/hooks/UseReducer'
 // import CustomHook from './components/organisms/CustomHook';
@@ -14,8 +15,8 @@ function App() {
      {/* <CustomHook/> */}
      {/* <Reducer/>
      <UseMemo/> */}
-
-     <A/>
+       <Rerender/>
+     {/* <A/> */}
     </>
   )
 }
