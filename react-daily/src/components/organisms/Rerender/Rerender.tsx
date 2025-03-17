@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const Rerender = () => {
     const [count,setCount]=useState(0)
     useEffect(()=>{
-        console.log("ReRendered");
+        console.log("Rerendered");
         
     },[count])
   return (
