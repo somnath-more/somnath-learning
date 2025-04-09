@@ -2,6 +2,7 @@
 import './App.css'
 // import LearningBootstrap from './components/organisms/LearningBootstrap';
 import SignUp from './components/organisms/LearningBootstrap/signup'
+import TicTacToe from './components/organisms/TicTacToe'
 // import SignInForm from './components/organisms/SignInForm'
 // import A from './components/hooks/UseContext/A'
 // import Rerender from './components/organisms/Rerender/Rerender'
@@ -9,6 +10,10 @@ import SignUp from './components/organisms/LearningBootstrap/signup'
 // import Reducer from './components/hooks/UseReducer'
 // import CustomHook from './components/organisms/CustomHook';
 // import TodoList from './components/organisms/TodoList'
+
+
+
+
 
 function App() {
 
@@ -23,7 +28,8 @@ function App() {
         {/* <SignInForm/> */}
         {/* <LearningBootstrap/>
          */}
-         <SignUp/>
+         {/* <SignUp/> */}
+         <TicTacToe/>
      {/* <A/> */}
     </>
   )
