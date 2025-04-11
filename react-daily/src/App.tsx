@@ -1,5 +1,6 @@
-
-import './App.css'
+import "./App.css";
+import NestedObject from "./components/organisms/NestedObject";
+// import Datatable from "./components/organisms/Pagination";
 // import LearningBootstrap from './components/organisms/LearningBootstrap';
 import SignUp from './components/organisms/LearningBootstrap/signup'
 import TicTacToe from './components/organisms/TicTacToe'
@@ -16,7 +17,6 @@ import TicTacToe from './components/organisms/TicTacToe'
 
 
 function App() {
-
   return (
     <>
      {/* <TodoList/> */}
@@ -32,7 +32,7 @@ function App() {
          <TicTacToe/>
      {/* <A/> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
