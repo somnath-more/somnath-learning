@@ -10,6 +10,7 @@ const user={
 }
 console.log(user.greet());
 console.log(user.fareWell());
+
 // GIVE CHALLENING JAVASCRIPT QUESTION IT WILL TEST MY JAVASCRIPT KNOWLEDGE GIVEN QUESTION . I WILL WRITE ANSWER
 // AND I WILL ASK FOR EXPLANATION OF THE ANSWER . start FROM QUESTION 1 FOR SDE Senour Developer interview
 // 1. What is the output of the following code?
@@ -56,3 +57,4 @@ console.log(typeof typeof 1); // string
 // Please dont give this  What is the output of the following code?
 // const arr = [1, 2, 3];
 // const [a, ...rest] = arr;
+
