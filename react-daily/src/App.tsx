@@ -1,5 +1,6 @@
 import "./App.css";
-import NestedObject from "./components/organisms/NestedObject";
+import Clock from "./components/organisms/Clock";
+// import NestedObject from "./components/organisms/NestedObject";
 // import Datatable from "./components/organisms/Pagination";
 // import LearningBootstrap from './components/organisms/LearningBootstrap';
 import SignUp from './components/organisms/LearningBootstrap/signup'
@@ -31,6 +32,17 @@ function App() {
          {/* <SignUp/> */}
          <TicTacToe/>
      {/* <A/> */}
+      {/* <TodoList/> */}
+      {/* <CustomHook/> */}
+   
+      {/* <SignInForm/> */}
+      {/* <SignUp/> */}
+      {/* <TicTacToe/> */}
+      {/* <A/> */}
+      {/* <Datatable/>
+       */}
+       {/* <NestedObject/> */}
+       <Clock/>
     </>
   );
 }
