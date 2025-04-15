@@ -1,5 +1,6 @@
 import "./App.css";
-import ImageCarousel from "./components/organisms/Carousal";
+// import ImageCarousel from "./components/organisms/Carousal";
+import NestedCheckBox from "./components/organisms/NestedCheckBox";
 // import Clock from "./components/organisms/Clock";
 // import NestedO`bject from "./components/organisms/NestedObject";
 // import Datatable from "./components/organisms/Pagination";
@@ -69,7 +70,9 @@ function App() {
        */}
        {/* <NestedObject/> */}
        {/* <Clock/> */}
-       <ImageCarousel images={IMAGES}/>
+       {/* <ImageCarousel images={IMAGES}/>
+        */}
+        <NestedCheckBox/>
     </>
   );
 }
