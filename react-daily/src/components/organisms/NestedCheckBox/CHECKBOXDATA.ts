@@ -1,4 +1,11 @@
-export const CHECKBOXDATA= [
+export interface CheckboxItem {
+    id: number;
+    name: string;
+    checked: boolean;
+    children?: CheckboxItem[]; // Optional for leaf nodes
+  }
+  
+export const CHECKBOXDATA:CheckboxItem[]= [
     {
       "id": 1,
       "name": "Electronics",
