@@ -58,3 +58,10 @@ console.log(typeof typeof 1); // string
 // const arr = [1, 2, 3];
 // const [a, ...rest] = arr;
 
+// export default sachin;
+console.log([] == ![]); // true
+console.log([] == false); // true
+console.log([] == []); //   false
+console.log(![] == false); // true
+console.log(![] == []); // false
+console.log(![] == ![]); // true
