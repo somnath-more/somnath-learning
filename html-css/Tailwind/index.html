@@ -17,19 +17,40 @@
         </header>
         <main class="mt-4">
             <section class="bg-gray-400 p-4 rounded shadow">
-                <h2 class="text-xl font">Getting Started</h2>
-                <p class="mt-2">Learning Tailwind CSS Quickly with examples.</p>
+                <h2 class="text-xl font-bold">Getting Started Tailwind CSS</h2>
+                <p class="mt-2">Sign In Form</p>
                 <ul class="list-disc list-inside mt-2">
-                    <li class="mt-1">Utility-first CSS framework</li>
-                    <li class="mt-1">Responsive design</li>
-                    <li class="mt-1">Customizable</li>
-                    
+                    <!-- Creating Sign In Form -->
+                    <form
+                        onsubmit="event.preventDefault(); onsubmitHandler(document.getElementById('name').value, document.getElementById('email').value, document.getElementById('password').value);"
+                        class="bg-white p-4 rounded shadow mt-2" style="max-width: 400px; margin: auto;">
+                        <label>Name</label>
+                        <input id="name" type="text"
+                            class="border border-gray-300 rounded p-2 mt-1 mb-2  bg-white w-full"
+                            placeholder="Enter your name">
+                        <label>Email</label>
+                        <input id="email" type="email"
+                            class="border border-gray-300 rounded p-2 mt-1 mb-2  bg-white w-full"
+                            placeholder="Enter your email">
+                        <label>Password</label>
+                        <input id="password" type="password"
+                            class="border border-gray-300 rounded p-2 mt-1 mb-2 bg-white w-full"
+                            placeholder="Enter your password">
+                        <button type="submit" class="bg-blue-500 text-white rounded p-2 mt-2 w-full">Sign In</button>
+
+                    </form>
+
+
                 </ul>
             </section>
         </main>
     </div>
 
-
+    <script>
+        function onsubmitHandler(name, email, password) {
+            alert(`Name: ${name}\nEmail: ${email}\nPassword: ${password}`);
+        }
+    </script>
 </body>
 
 </html>
