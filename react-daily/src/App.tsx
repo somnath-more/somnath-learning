@@ -1,10 +1,12 @@
 import "./App.css";
 import React from "react";
+import RazorpayComponent from "./components/organisms/RazorpayComponent/RazorpayComponent";
 // import TranferList from "./components/organisms/TransferList";
 // import StopWatch from "./components/organisms/StopWatch";
 // import HeightLearning from "./components/atoms/HeightLearning";
-import UseRefHook from "./components/hooks/UseRefHook/UseRefHook";
-import USeLayoutHook from "./components/hooks/useLayoutHook/USeLayoutHook";
+// import UseRefHook from "./components/hooks/UseRefHook/UseRefHook";
+// import USeLayoutHook from "./components/hooks/useLayoutHook/USeLayoutHook";
+// import RazorpayComponent from "./components/organisms/RazorpayComponent";
 function App() {
   return (
     <>
@@ -14,7 +16,10 @@ function App() {
          {/* <HeightLearning/>
           */}
           {/* <UseRefHook/> */}
-          <USeLayoutHook/>
+          {/* <USeLayoutHook/> */}
+          <RazorpayComponent/>
+          
+           
     </>
   );
 }
