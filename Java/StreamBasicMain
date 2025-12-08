@@ -1,0 +1,63 @@
+// Stream Easy Level Questions 12-08-2025
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.Optional;
+class StreamBasicMain {
+    public static void main(String[] args) {
+        // Q1:Creation of Stream
+        //   List<Integer> list1=Arrays.asList(1,2,3,4,5);
+        //   Stream<Integer> streamObj=list1.stream();
+          int[] arr={1,2,3,4};
+        // Stream<Integer> streamObj= Arrays.stream(arr)
+        // Stream<Integer> streamObj=stream.of("A","B","C","D");
+        // Stream.generate(Math::random).limit(5);
+        // Q2: filter even
+          List<Integer> list1=Arrays.asList(1,2,3,4,5);
+          List<Integer> evenList=list1.stream().filter(num->num%2==0).collect(Collectors.toList());
+            System.out.println(evenList);
+        // Q3: make Squares
+          List<Integer> list=Arrays.asList(1,2,3,4,5);
+        List<Integer> squareList= list.stream().map(n->n*n).collect(Collectors.toList());
+        System.out.println(squareList);
+        
+        // Q4:print even number squares
+             List<Integer> list4=Arrays.asList(1,2,3,4,5);
+        List<Integer> squareEvenList= list4.stream().filter(n->n%2==0).map(n->n*n).collect(Collectors.toList());
+        System.out.println(squareEvenList);
+        
+        // Q5: first number greater than 10
+        List<Integer> list5=Arrays.asList(1,12,1,11,4,5);
+        Optional<Integer> first= list5.stream().filter(n-> n>10).sorted().findFirst();
+        System.out.println(first.get());
+        
+        // Q 6: count greater than 5 minutes
+                List<Integer> list6=Arrays.asList(1,12,1,11,6);
+        long count1= list6.stream().filter(n-> n>5).count();
+        System.out.println(count1);
+        // Q 7: Sum of all  in list
+        List<Integer> list7=Arrays.asList(1,12,1,11,6);
+        long sum= list7.stream().reduce(0,(a,b)-> a+b);
+        System.out.println(sum);
+        
+         // Q 8: Sum of all even  product in list
+        List<Integer> list8=Arrays.asList(1,12,1,11,6);
+        long sum1= list8.stream().filter(n->n%2==0).reduce(0,(a,b)-> a+b);
+        System.out.println(sum1);
+    // Q 9: find maximum number in list
+        List<Integer> list9=Arrays.asList(1,12,1,11,6);
+        Optional<Integer> sum9= list9.stream().sorted((a,b)->b-a).findFirst();
+        System.out.println(sum9.get());
+        
+            // Q 10: sum of sqaaures of even numbers in list
+        List<Integer> list10=Arrays.asList(1,12,1,11,6);
+        long sum10= list10.stream().filter(n->n%2==0).map(n->n
+        *n).reduce(0,(a,b)-> a+b);
+        System.out.println(sum10);
+        // java 10 and java 17 featues 
+        var a="ganesh";
+        var b=4;
+        System.out.println(a);
+        System.out.println(b);
+        
+    }
+}
