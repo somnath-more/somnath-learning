@@ -16,4 +16,12 @@ allMatch
 Sealed 
 Intermediate vs Terminal Operations in java
 IsEmpty vs isBlank
-    
+1✅ Java OOPs concepts
+2✅ Java Memory Model
+3✅ Java Garbage Collection
+4✅ Keywords:
+- static,
+- final,
+- volatile,
+- synchronized,
+- interface
