@@ -42,6 +42,10 @@ public class Main {
      boolean containsApple = fruits.stream().anyMatch(predicate -> predicate.contains("apple"));
      System.out.println(containsApple);
 
+    //  MAKE IN UPPERCASE
+         List<String> fruits12 = Arrays.asList("banana", "orange", "apple", "grape");
+      fruits12.stream().map(String::toUpperCase).forEach(System.out::println);
+
 
 
 
