@@ -55,6 +55,15 @@ public class Main {
 
     List<String> words = List.of("Java", "stream", "API", "code");
     Map<Integer, Long> wordCounts = words.stream().collect(Collectors.groupingBy(String::length,Collectors.counting()));
-    System.out.println(wordCounts);
+    // System.out.println(wordCounts);
+
+    // Create list of 2 integers
+        List<Integer> list11 = List.of(1, 2, 3, 4);
+        List<Integer> list22 = List.of(5, 6, 7, 8,1);
+        list11.stream().filter(list22::contains).forEach(System.out::println);  
+
+
+
+    
     }
 }
