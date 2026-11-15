@@ -1,25 +1,20 @@
-
-//     public void run(){
-//         System.out.println("Thread Started");
-//     }
-   
-// }
-
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
         System.out.println("Main");
 
-        // ThreadBasics threadBasics=new ThreadBasics();
-        // threadBasics.start();
-        Runnable runnable=()->System.out.println("Thread Started Runnable");
-        try {
-                   FileReader fr = new FileReader("file.txt");
-                   System.out.println("Fr"+fr);
+        Runnable runnable = () -> System.out.println("Thread Started Runnable");
 
+        try {
+            FileReader fr = new FileReader("Java\\2026\\javabasics\\masterjava.md");
+            System.out.println("Fr: " + fr);
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found Exception: " + e);
         } catch (Exception e) {
-               System.out.println("Exception : "+e);
+            System.out.println("General Exception: " + e);
         }
     }
 }
