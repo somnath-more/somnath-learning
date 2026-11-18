@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -195,6 +194,36 @@ public class Main {
                         empList.forEach(emp -> System.out.println("    Employee: " + emp.name));
                     });
                 });
+
+        // Hello
+        System.out.println("Hello, World!");
+        // random problem of steams ask
+        // Q . Find the average score of students in a list.
+        List<Student> students1 = Arrays.asList(
+                new Student("Alice", 85),
+                new Student("Bob", 92),
+                new Student("Charlie", 88),
+                new Student("Dave", 78),
+                new Student("Eve", 91));
+                students1.stream().mapToInt(s -> s.score).average().ifPresent(avg -> System.out.println("Average Score: " + avg));
+
+        // Give next
+        // Q. Find the names of students who scored above 90. dont recomment solution
+        List<String> highScoringStudents = students1.stream().filter(s -> s.score > 90).map(s -> s.name).collect(Collectors.toList());
+        System.out.println("High Scoring Students: " + highScoringStudents);
+        // Q3 : Find the student with the highest score in a list.
+        students1.stream().max(Comparator.comparingInt(s->s.score)).ifPresent(highestStudent -> System.out.println("Student with Highest Score: " + highestStudent.name));
+        // Q4 : ask random problem of streams 
+        // sort base on descending order of score and print the names of students in that order.
+        List<String> sortedStudents = students1.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed()).map(s -> s.name).collect(Collectors.toList());
+        System.out.println("Sorted Students: " + sortedStudents);
+        // Q5 : ask next question of streams
+        // sort name wise in ascending order and print the names of students in that order.
+        List<String> sortedByNameStudents = students1.stream().sorted(Comparator.comparing((Student s) -> s.name)).map(s -> s.name).collect(Collectors.toList());
+        System.out.println("Sorted by Name Students: " + sortedByNameStudents);
+  
+        
+
     }
 
     public static class Employee {
@@ -207,5 +236,10 @@ public class Main {
             this.age = age;
         }
     }
+    
+
+
+
+    
 
 }
