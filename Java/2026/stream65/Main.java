@@ -221,6 +221,67 @@ public class Main {
         // sort name wise in ascending order and print the names of students in that order.
         List<String> sortedByNameStudents = students1.stream().sorted(Comparator.comparing((Student s) -> s.name)).map(s -> s.name).collect(Collectors.toList());
         System.out.println("Sorted by Name Students: " + sortedByNameStudents);
+
+
+        // triplet sum having target sum using stream
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int targetSum = 9;
+        List<List<Integer>> triplets = numbers.stream()
+                .flatMap(i -> numbers.stream()
+                         .flatMap(j -> numbers.stream()
+                                .filter(k -> i + j + k == targetSum)
+                                .map(k -> Arrays.asList(i, j, k))))
+                .distinct()
+                .collect(Collectors.toList());
+       // System.out.println("Triplets with target sum " + targetSum + ": " + triplets);
+        //above will take O(n^3) time complexity, we can optimize it using two pointer approach but that will not be possible using streams.
+        for(int i=0;i<numbers.size()-2;i++){
+            int left=i+1;
+            int right=numbers.size()-1;
+            while(left<right){
+                int sum=numbers.get(i)+numbers.get(left)+numbers.get(right);
+                if(sum==targetSum){
+                    System.out.println("Triplet : "+numbers.get(i)+" "+numbers.get(left)+" "+numbers.get(right));
+                    left++;
+                    right--;
+                }else if(sum<targetSum){
+                    left++;
+                }else{
+                    right--;
+                }
+            }
+        }
+        // ask some stream 
+        // Q6: return a list of even numbers from the given list
+        List<Integer> evenNumbers = numbers.stream().sorted(Comparator.reverseOrder()).filter(n -> n % 2 == 0).collect(Collectors.toList());
+        System.out.println("Even Numbers: " + evenNumbers);
+        // Q7: Convert a list of strings to uppercase and collect them into a List.
+        List<String> words = Arrays.asList("java", "stream", "api","api");
+        List<String> upperCaseWords=words.stream().map(String::toUpperCase).collect(Collectors.toList());
+        // System.out.println("Uppercase Words: " + upperCaseWords);
+
+        // Find the second-highest number from an integer list.
+        Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
+        //another approach is to use max and filter
+        Integer secondHighestAlt = numbers.stream().distinct().filter(n -> n < numbers.stream().max(Integer::compareTo).orElse(Integer.MIN_VALUE)).max(Integer::compareTo).orElse(null);
+        // System.out.println("Second Highest: " + secondHighest);
+        // System.out.println("Second Highest (Alternative): " + secondHighestAlt);
+// Count the frequency of each word in a list using Collectors.groupingBy().
+        // Map<String, Long> wordFrequency = words.stream().collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
+        // System.out.println("Word Frequency: " + wordFrequency);
+// Given a list of employees, find the highest-paid employee from a specific department.
+        List<Employee> employees1 = Arrays.asList(
+                new Employee("Alice", "HR", 25),
+                new Employee("Bob", "IT", 30),
+                new Employee("Charlie", "HR", 30),
+                new Employee("Somanth", "HR", 30),
+                new Employee("Dave", "IT", 25));
+        String department = "HR";
+        employees1.stream().filter(e -> e.department.equals(department)).max(Comparator.comparingInt(e -> e.age)).ifPresent(highestPaid -> System.out.println("Highest Paid in " + department + ": " + highestPaid.name));
+
+
+
+
   
         
 
@@ -243,3 +304,4 @@ public class Main {
     
 
 }
+                 
