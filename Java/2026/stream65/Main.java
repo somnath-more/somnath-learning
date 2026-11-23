@@ -145,9 +145,9 @@ public class Main {
                 new Student("Dave", 78),
                 new Student("Eve", 91));
 
-        List<String> topStudents = students.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed())
-                .limit(3).map(s -> s.name).collect(Collectors.toList());
-        System.out.println("Top Students : " + topStudents);
+        // List<String> topStudents = students.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed())
+        //         .limit(3).map(s -> s.name).collect(Collectors.toList());
+        // System.out.println("Top Students : " + topStudents);
 
         // 34. Group by First Character
         // Question: Group a list of strings by their first character.
@@ -215,73 +215,127 @@ public class Main {
         students1.stream().max(Comparator.comparingInt(s->s.score)).ifPresent(highestStudent -> System.out.println("Student with Highest Score: " + highestStudent.name));
         // Q4 : ask random problem of streams 
         // sort base on descending order of score and print the names of students in that order.
-        List<String> sortedStudents = students1.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed()).map(s -> s.name).collect(Collectors.toList());
-        System.out.println("Sorted Students: " + sortedStudents);
+        // List<String> sortedStudents = students1.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed()).map(s -> s.name).collect(Collectors.toList());
+        // System.out.println("Sorted Students: " + sortedStudents);
         // Q5 : ask next question of streams
         // sort name wise in ascending order and print the names of students in that order.
-        List<String> sortedByNameStudents = students1.stream().sorted(Comparator.comparing((Student s) -> s.name)).map(s -> s.name).collect(Collectors.toList());
-        System.out.println("Sorted by Name Students: " + sortedByNameStudents);
+        // List<String> sortedByNameStudents = students1.stream().sorted(Comparator.comparing((Student s) -> s.name)).map(s -> s.name).collect(Collectors.toList());
+        // System.out.println("Sorted by Name Students: " + sortedByNameStudents);
 
 
         // triplet sum having target sum using stream
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        int targetSum = 9;
-        List<List<Integer>> triplets = numbers.stream()
-                .flatMap(i -> numbers.stream()
-                         .flatMap(j -> numbers.stream()
-                                .filter(k -> i + j + k == targetSum)
-                                .map(k -> Arrays.asList(i, j, k))))
-                .distinct()
-                .collect(Collectors.toList());
+        // List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        // int targetSum = 9;
+        // List<List<Integer>> triplets = numbers.stream()
+        //         .flatMap(i -> numbers.stream()
+        //                  .flatMap(j -> numbers.stream()
+        //                         .filter(k -> i + j + k == targetSum)
+        //                         .map(k -> Arrays.asList(i, j, k))))
+        //         .distinct()
+        //         .collect(Collectors.toList());
        // System.out.println("Triplets with target sum " + targetSum + ": " + triplets);
         //above will take O(n^3) time complexity, we can optimize it using two pointer approach but that will not be possible using streams.
-        for(int i=0;i<numbers.size()-2;i++){
-            int left=i+1;
-            int right=numbers.size()-1;
-            while(left<right){
-                int sum=numbers.get(i)+numbers.get(left)+numbers.get(right);
-                if(sum==targetSum){
-                    System.out.println("Triplet : "+numbers.get(i)+" "+numbers.get(left)+" "+numbers.get(right));
-                    left++;
-                    right--;
-                }else if(sum<targetSum){
-                    left++;
-                }else{
-                    right--;
-                }
-            }
-        }
+        // for(int i=0;i<numbers.size()-2;i++){
+        //     int left=i+1;
+        //     int right=numbers.size()-1;
+        //     while(left<right){
+        //         int sum=numbers.get(i)+numbers.get(left)+numbers.get(right);
+        //         if(sum==targetSum){
+        //             System.out.println("Triplet : "+numbers.get(i)+" "+numbers.get(left)+" "+numbers.get(right));
+        //             left++;
+        //             right--;
+        //         }else if(sum<targetSum){
+        //             left++;
+        //         }else{
+        //             right--;
+        //         }
+        //     }
+        // }
         // ask some stream 
         // Q6: return a list of even numbers from the given list
-        List<Integer> evenNumbers = numbers.stream().sorted(Comparator.reverseOrder()).filter(n -> n % 2 == 0).collect(Collectors.toList());
-        System.out.println("Even Numbers: " + evenNumbers);
+        // List<Integer> evenNumbers = numbers.stream().sorted(Comparator.reverseOrder()).filter(n -> n % 2 == 0).collect(Collectors.toList());
+        // System.out.println("Even Numbers: " + evenNumbers);
         // Q7: Convert a list of strings to uppercase and collect them into a List.
-        List<String> words = Arrays.asList("java", "stream", "api","api");
-        List<String> upperCaseWords=words.stream().map(String::toUpperCase).collect(Collectors.toList());
+        // List<String> words = Arrays.asList("java", "stream", "api","api");
+        // List<String> upperCaseWords=words.stream().map(String::toUpperCase).collect(Collectors.toList());
         // System.out.println("Uppercase Words: " + upperCaseWords);
 
         // Find the second-highest number from an integer list.
-        Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
+        // Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
         //another approach is to use max and filter
-        Integer secondHighestAlt = numbers.stream().distinct().filter(n -> n < numbers.stream().max(Integer::compareTo).orElse(Integer.MIN_VALUE)).max(Integer::compareTo).orElse(null);
+        // Integer secondHighestAlt = numbers.stream().distinct().filter(n -> n < numbers.stream().max(Integer::compareTo).orElse(Integer.MIN_VALUE)).max(Integer::compareTo).orElse(null);
         // System.out.println("Second Highest: " + secondHighest);
         // System.out.println("Second Highest (Alternative): " + secondHighestAlt);
 // Count the frequency of each word in a list using Collectors.groupingBy().
         // Map<String, Long> wordFrequency = words.stream().collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
         // System.out.println("Word Frequency: " + wordFrequency);
 // Given a list of employees, find the highest-paid employee from a specific department.
-        List<Employee> employees1 = Arrays.asList(
-                new Employee("Alice", "HR", 25),
-                new Employee("Bob", "IT", 30),
-                new Employee("Charlie", "HR", 30),
-                new Employee("Somanth", "HR", 30),
-                new Employee("Dave", "IT", 25));
-        String department = "HR";
-        employees1.stream().filter(e -> e.department.equals(department)).max(Comparator.comparingInt(e -> e.age)).ifPresent(highestPaid -> System.out.println("Highest Paid in " + department + ": " + highestPaid.name));
+        // List<Employee> employees1 = Arrays.asList(
+        //         new Employee("Alice", "HR", 25),
+        //         new Employee("Bob", "IT", 30),
+        //         new Employee("Charlie", "HR", 30),
+        //         new Employee("Somanth", "HR", 30),
+        //         new Employee("Dave", "IT", 25));
+        // String department = "HR";
+        // employees1.stream().filter(e -> e.department.equals(department)).max(Comparator.comparingInt(e -> e.age)).ifPresent(highestPaid -> System.out.println("Highest Paid in " + department + ": " + highestPaid.name));
 
+// Day 07 : Stream and lambda Expressions random questions
 
+        // Q1. From the list below, find all names that start with a vowel. (aeiou)
+        // List<String> names = Arrays.asList("Aarav", "Maya", "Ishaan", "Rohan", "Uma", "Neha");
+        // filter required s.startsWith("A") || s.startsWith("E") || s.startsWith("I") || s.startsWith("O") || s.startsWith("U")
+        // List<String> namesStartingWithVowel = names.stream()
+        //         .filter(s -> s.toLowerCase().startsWith("a") || s.toLowerCase().startsWith("e") ||
+        //                      s.toLowerCase().startsWith("i") || s.toLowerCase().startsWith("o") ||
+        //                      s.toLowerCase().startsWith("u"))
+        //         .collect(Collectors.toList());
+        // List<String> namesStartingWithVowel = names.stream().filter(s -> s.toLowerCase().startsWith("a") || s.toLowerCase().startsWith("e") || s.toLowerCase().startsWith("i") || s.toLowerCase().startsWith("o") || s.toLowerCase().startsWith("u")).collect(Collectors.toList());
+        // System.out.println("Names starting with a vowel: " + namesStartingWithVowel);
 
+        // Q2. Find the distinct even numbers and sort them in ascending order.
+        List<Integer> numbers = Arrays.asList(12, 7, 4, 12, 9, 6, 4, 15, 2);
+        numbers.stream().distinct().filter(n -> n % 2 == 0).sorted().forEach(System.out::println);
 
+        // Q3. Find the longest word in the list.
+        // List<String> words = Arrays.asList("lambda", "stream", "function", "java", "expression");
+        // words.stream().max(Comparator.comparingInt(String::length)).ifPresent(longestWord -> System.out.println("Longest Word: " + longestWord));
+
+        // Q4. Group the words by their length.
+        List<String> words = Arrays.asList("red", "blue", "gold", "violet", "green", "indigo");
+        Map<Integer, List<String>> groupedByLength = words.stream().collect(Collectors.groupingBy(String::length));
+        groupedByLength.forEach((length, wordList) -> System.out.println("Length " + length + ": " + wordList));
+
+        // Q5. Count how many times each word appears.
+        // List<String> words = Arrays.asList("tea", "coffee", "tea", "juice", "coffee", "tea", "water");
+        Map<String, Long> wordCount = words.stream().collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+        wordCount.forEach((word, count) -> System.out.println(word + ": " + count));
+
+        // Q6. Find the second-highest distinct number.
+        // List<Integer> numbers = Arrays.asList(31, 18, 42, 31, 27, 42, 35, 18);
+        Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
+        System.out.println("Second Highest Distinct Number: " + secondHighest);
+
+        // Q7. Flatten the nested lists into one list and keep only numbers greater than 5.
+        // List<List<Integer>> nestedNumbers = Arrays.asList(
+        //         Arrays.asList(2, 6, 9),
+        //         Arrays.asList(4, 7),
+        //         Arrays.asList(1, 8, 3));
+
+        // Q8. Partition the numbers into positive and negative values.
+        // List<Integer> numbers = Arrays.asList(-8, 3, 0, -2, 11, 5, -6);
+
+        // Q9. Find all palindromes in the list of words.
+        // List<String> words = Arrays.asList("level", "stream", "civic", "java", "radar", "kayak");
+
+        // Q10. Calculate the sum of the squares of all odd numbers.
+        // List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+
+        // Q11. Sort the words by length, then alphabetically when lengths are equal.
+        // List<String> words = Arrays.asList("pear", "fig", "plum", "kiwi", "apple", "date");
+
+        // Q12. Find the common values between the two lists without duplicates.
+        // List<Integer> first = Arrays.asList(4, 7, 2, 7, 9, 1);
+        // List<Integer> second = Arrays.asList(3, 7, 1, 8, 2, 2);
   
         
 

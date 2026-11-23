@@ -142,8 +142,11 @@ public class Main {
 //        List<Integer> duplicateNumbers =  numbers.stream().filter(n->st.add(n))
 //             .collect(Collectors.toList());
 //         System.out.println(duplicateNumbers);
+
+// Day 07 : Stream and lambda Expressions random questions
         
         
+
 
     
     }
