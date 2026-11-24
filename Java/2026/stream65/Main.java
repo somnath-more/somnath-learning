@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Map;
 
 class Student {
     String name;
@@ -228,7 +229,7 @@ public class Main {
         // int targetSum = 9;
         // List<List<Integer>> triplets = numbers.stream()
         //         .flatMap(i -> numbers.stream()
-        //                  .flatMap(j -> numbers.stream()
+                            //   .flatMap(j -> numbers.stream()
         //                         .filter(k -> i + j + k == targetSum)
         //                         .map(k -> Arrays.asList(i, j, k))))
         //         .distinct()
@@ -293,27 +294,27 @@ public class Main {
         // System.out.println("Names starting with a vowel: " + namesStartingWithVowel);
 
         // Q2. Find the distinct even numbers and sort them in ascending order.
-        List<Integer> numbers = Arrays.asList(12, 7, 4, 12, 9, 6, 4, 15, 2);
-        numbers.stream().distinct().filter(n -> n % 2 == 0).sorted().forEach(System.out::println);
+        // List<Integer> numbers = Arrays.asList(12, 7, 4, 12, 9, 6, 4, 15, 2);
+        // numbers.stream().distinct().filter(n -> n % 2 == 0).sorted().forEach(System.out::println);
 
         // Q3. Find the longest word in the list.
         // List<String> words = Arrays.asList("lambda", "stream", "function", "java", "expression");
         // words.stream().max(Comparator.comparingInt(String::length)).ifPresent(longestWord -> System.out.println("Longest Word: " + longestWord));
 
         // Q4. Group the words by their length.
-        List<String> words = Arrays.asList("red", "blue", "gold", "violet", "green", "indigo");
-        Map<Integer, List<String>> groupedByLength = words.stream().collect(Collectors.groupingBy(String::length));
-        groupedByLength.forEach((length, wordList) -> System.out.println("Length " + length + ": " + wordList));
+        // List<String> words = Arrays.asList("red", "blue", "gold", "violet", "green", "indigo");
+        // Map<Integer, List<String>> groupedByLength = words.stream().collect(Collectors.groupingBy(String::length));
+        // groupedByLength.forEach((length, wordList) -> System.out.println("Length " + length + ": " + wordList));
 
         // Q5. Count how many times each word appears.
         // List<String> words = Arrays.asList("tea", "coffee", "tea", "juice", "coffee", "tea", "water");
-        Map<String, Long> wordCount = words.stream().collect(Collectors.groupingBy(word -> word, Collectors.counting()));
-        wordCount.forEach((word, count) -> System.out.println(word + ": " + count));
+        // Map<String, Long> wordCount = words.stream().collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+        // wordCount.forEach((word, count) -> System.out.println(word + ": " + count));
 
         // Q6. Find the second-highest distinct number.
         // List<Integer> numbers = Arrays.asList(31, 18, 42, 31, 27, 42, 35, 18);
-        Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
-        System.out.println("Second Highest Distinct Number: " + secondHighest);
+        // Integer secondHighest = numbers.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(null);
+        // System.out.println("Second Highest Distinct Number: " + secondHighest);
 
         // Q7. Flatten the nested lists into one list and keep only numbers greater than 5.
         // List<List<Integer>> nestedNumbers = Arrays.asList(
@@ -336,9 +337,50 @@ public class Main {
         // Q12. Find the common values between the two lists without duplicates.
         // List<Integer> first = Arrays.asList(4, 7, 2, 7, 9, 1);
         // List<Integer> second = Arrays.asList(3, 7, 1, 8, 2, 2);
-  
-        
 
+        // day 09:
+        String str = "swiss";
+        // Q1: first non repeating characters 
+        // str.chars()
+        //    .mapToObj(s -> (char) s)
+        //    .filter(s -> str.indexOf(s) == str.lastIndexOf(s))
+        //    .findFirst()
+        //    .ifPresent(System.out::println);
+        
+                //   :Count the frequency of each character in a string and return a Map<Character, Long>
+        //  Map<Character, Long> mp = str.chars()
+        //     .mapToObj(s -> (char) s)
+        //     .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        // System.out.println("Map: " + mp);
+
+        // q3:Reverse each word in a sentence while keeping the word order intact.
+
+        // String sentence = "Somnath Laxman More";
+        // String reverseSentence = Arrays.stream(sentence.split(" "))
+        //     .map(word -> new StringBuilder(word).reverse())
+        //     .collect(Collectors.joining(" "));
+
+        // System.out.println(reverseSentence);
+          
+    //    Find all duplicate characters or words in a list and print them once.
+    // str.chars()
+    //     .mapToObj(s->(char)s)
+    //     .filter(s -> str.indexOf(s)!= str.lastIndexOf(s))
+    //     .distinct()
+    //     .forEach(System.out::println);
+    // write another approach in future 
+        // Check whether two strings are anagrams.
+        String s1 = "sas";
+        String s2 = "ass";
+        boolean areAnagrams = Arrays.equals(
+            s1.chars().sorted().toArray(),
+            s2.chars().sorted().toArray()
+        );
+        System.out.println("Are anagrams: " + areAnagrams);
+
+        
+    
     }
 
     public static class Employee {
