@@ -1,9 +1,11 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.math.BigDecimal;
 import java.util.stream.Collectors;
 import java.util.Map;
-
+import java.util.Map.Entry;
+import java.util.Objects;
 class Student {
     String name;
     int score;
@@ -226,8 +228,8 @@ public class Main {
 
         // triplet sum having target sum using stream
         // List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        // int targetSum = 9;
-        // List<List<Integer>> triplets = numbers.stream()
+                // int targetSum = 9;
+                //  List<Integer>> triplets = numbers.stream()
         //         .flatMap(i -> numbers.stream()
                             //   .flatMap(j -> numbers.stream()
         //                         .filter(k -> i + j + k == targetSum)
@@ -339,13 +341,11 @@ public class Main {
         // List<Integer> second = Arrays.asList(3, 7, 1, 8, 2, 2);
 
         // day 09:
-        String str = "swiss";
+        // String str = "swiss";
         // Q1: first non repeating characters 
         // str.chars()
         //    .mapToObj(s -> (char) s)
-        //    .filter(s -> str.indexOf(s) == str.lastIndexOf(s))
-        //    .findFirst()
-        //    .ifPresent(System.out::println);
+        //    .filter(s -> str.indexOf(s) == str.lastIndexOf(s)) indFirst().ifPresent(System.out::println);
         
                 //   :Count the frequency of each character in a string and return a Map<Character, Long>
         //  Map<Character, Long> mp = str.chars()
@@ -371,17 +371,81 @@ public class Main {
     //     .forEach(System.out::println);
     // write another approach in future 
         // Check whether two strings are anagrams.
-        String s1 = "sas";
-        String s2 = "ass";
-        boolean areAnagrams = Arrays.equals(
-            s1.chars().sorted().toArray(),
-            s2.chars().sorted().toArray()
-        );
-        System.out.println("Are anagrams: " + areAnagrams);
+        // String s1 = "sas";
+        // String s2 = "ass";
+        // boolean areAnagrams = Arrays.equals(
+        //     s1.chars().sorted().toArray(),
+        //     s2.chars().sorted().toArray()
+        // );
+        // System.out.println("Are anagrams: " + areAnagrams);
+// Day 10 :
+//   Q1. Flatten Nested Lists and Deduplicate
+// Given List<List<String>> nestedTags, flatten all inner lists into a single collection of distinct tags sorted alphabetically.
+// List<List<Integer>> list= List.of(List.of(1,2,3,4),List.of(5,6,7,8),List.of(9,10));
+// List<Integer> updatedList= list.stream().flatMap(List::stream).collect(Collectors.toList());
+// System.out.println("List :"+updatedList);
+// Q2. Safe toMap on Duplicate Keys
+// Given a list of Transaction(String id, String accountId, BigDecimal amount), build a Map<String, BigDecimal> of total amount per accountId without throwing IllegalStateException on duplicate keys.
+// List<Transaction> transactionList = List.of(
+//     new Transaction("T1", "A1", new BigDecimal("10.50")),
+//     new Transaction("T2", "A1", new BigDecimal("5.25")),
+//     new Transaction("T3", "A2", new BigDecimal("8.00"))
+// );
+// Map<String, BigDecimal> result = transactionList.stream()
+//     .collect(Collectors.toMap(
+//         Transaction::accountId,
+//         Transaction::amount,
+//         BigDecimal::add
+//     ));
+// System.out.println("Total per account: " + result);
 
-        
+// Day :11
+// i.Remove leading and trailing spaces from all strings, then remove empty strings.
+
+// List<String> values = Arrays.asList(" Java ", "", " Stream ", "API", " ");
+// List<String> result = values.stream()
+//         .filter(Objects::nonNull)
+//         .map(String::trim)
+//         .filter(v -> !v.isBlank())
+//         .toList();
+// System.out.println("Total per account: " + result);
+
+//ii. Find the shortest string from a list of strings.
+// values.stream()
+//       .collect(Collectors.groupingBy(String::length))
+//       .entrySet()
+//       .stream()
+//       .min(Map.Entry.comparingByKey())
+//       .ifPresent(entry->System.out.println(entry.getValue()));
+// iii. Check whether all numbers in a list are positive.
+// List<Integer> numbers = Arrays.asList(12, 43, 8, 27);
+// boolean allPositive =numbers.stream().allMatch(n->n>0);
+// System.out.println(allPositive);
+
+//iv. Get the sum of digits of every number in a list.
+// List<Integer> numbers = Arrays.asList(12, 43, 8, 27);
+// List<Integer> digitSums = numbers.stream()
+//         .map(number -> String.valueOf(number)
+//         .chars().filter(Character::isDigit).map(c->c-'0')
+//         .sum())
+//         .collect(Collectors.toList());
+//         System.out.println(digitSums);
+// Return distinct names in lowercase, sorted alphabetically.
+List<String> names = Arrays.asList("Rahul", "rahul", "NEHA", "Neha", "Amit");
+List<String> result =names.stream().map(String::toLowerCase).distinct().sorted().collect(Collectors.toList());
+
+System.out.println(result); 
+
+
+
+
+
     
+
     }
+
+
+    public record Transaction(String id, String accountId, BigDecimal amount) {}
 
     public static class Employee {
         String name, department;
